@@ -1,6 +1,6 @@
 ﻿namespace KBProgressManagement.UI
 {
-    partial class frmMaincs
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.

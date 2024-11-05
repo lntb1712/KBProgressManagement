@@ -11,16 +11,19 @@ using System.Windows.Forms;
 
 namespace KBProgressManagement.UI
 {
-    public partial class frmMaincs : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmMaincs()
+        public frmMain()
         {
             InitializeComponent();
         }
 
         private void btnStageRegistration_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            frmMain frmMain = new frmMain();
+            this.Hide();
+            frmMain.ShowDialog();
+            this.Show();
         }
     }
 }
