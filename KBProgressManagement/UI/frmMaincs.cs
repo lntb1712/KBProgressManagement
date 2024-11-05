@@ -17,5 +17,10 @@ namespace KBProgressManagement.UI
         {
             InitializeComponent();
         }
+
+        private void btnStageRegistration_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

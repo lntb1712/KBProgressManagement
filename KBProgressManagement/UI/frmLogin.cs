@@ -17,5 +17,13 @@ namespace KBProgressManagement.UI
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmMain frmMain = new frmMain();
+            this.Hide();
+            frmMain.ShowDialog();
+            this.Show();
+        }
     }
 }

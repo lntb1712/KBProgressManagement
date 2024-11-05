@@ -62,6 +62,7 @@
             this.btnLogin.Size = new System.Drawing.Size(371, 35);
             this.btnLogin.TabIndex = 13;
             this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // labelControl2
             // 
