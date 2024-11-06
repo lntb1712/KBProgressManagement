@@ -47,6 +47,7 @@
             this.btnLogOut = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.Function = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -55,7 +56,6 @@
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
@@ -112,7 +112,7 @@
             // btnUserManagement
             // 
             this.btnUserManagement.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btnUserManagement.Caption = "Quản Lí Người Dùng";
+            this.btnUserManagement.Caption = "Quản lí người dùng";
             this.btnUserManagement.Id = 1;
             this.btnUserManagement.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_user_48;
             this.btnUserManagement.ImageOptions.LargeImageIndex = 38;
@@ -123,7 +123,7 @@
             // 
             // btnGroupManagement
             // 
-            this.btnGroupManagement.Caption = "Quản Lí Nhóm Người Dùng";
+            this.btnGroupManagement.Caption = "Quản lí nhóm người dùng";
             this.btnGroupManagement.Id = 2;
             this.btnGroupManagement.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.Account;
             this.btnGroupManagement.ImageOptions.LargeImageIndex = 38;
@@ -134,13 +134,14 @@
             // 
             // btnStageRegistration
             // 
-            this.btnStageRegistration.Caption = "Thêm Công Đoạn";
+            this.btnStageRegistration.Caption = "Thêm công đoạn";
             this.btnStageRegistration.Id = 3;
             this.btnStageRegistration.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.engineering;
             this.btnStageRegistration.ImageOptions.LargeImageIndex = 38;
             this.btnStageRegistration.LargeWidth = 100;
             this.btnStageRegistration.Name = "btnStageRegistration";
             this.btnStageRegistration.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnStageRegistration.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStageRegistration_ItemClick);
             // 
             // btnPart
             // 
@@ -151,6 +152,7 @@
             this.btnPart.LargeWidth = 100;
             this.btnPart.Name = "btnPart";
             this.btnPart.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPart.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPart_ItemClick);
             // 
             // btnProduct
             // 
@@ -174,7 +176,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Caption = "In Tem";
+            this.btnPrint.Caption = "In tem";
             this.btnPrint.Id = 7;
             this.btnPrint.ImageOptions.Image = global::KBProgressManagement.Properties.Resources._1;
             this.btnPrint.ImageOptions.LargeImageIndex = 38;
@@ -184,7 +186,7 @@
             // 
             // btnReprint
             // 
-            this.btnReprint.Caption = "In Lại Tem";
+            this.btnReprint.Caption = "In lại tem";
             this.btnReprint.Id = 8;
             this.btnReprint.ImageOptions.Image = global::KBProgressManagement.Properties.Resources._2;
             this.btnReprint.ImageOptions.LargeImageIndex = 38;
@@ -194,7 +196,7 @@
             // 
             // btnPrintHistory
             // 
-            this.btnPrintHistory.Caption = "Lịch Sử In Nhãn";
+            this.btnPrintHistory.Caption = "Lịch sử in nhãn";
             this.btnPrintHistory.Id = 9;
             this.btnPrintHistory.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_print_address_label_48;
             this.btnPrintHistory.ImageOptions.LargeImageIndex = 38;
@@ -210,7 +212,7 @@
             // 
             // btnProgress
             // 
-            this.btnProgress.Caption = "Tiến Độ";
+            this.btnProgress.Caption = "Tiến độ";
             this.btnProgress.Id = 11;
             this.btnProgress.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_line_chart_32;
             this.btnProgress.ImageOptions.LargeImageIndex = 38;
@@ -221,7 +223,7 @@
             // 
             // btnProgressHistory
             // 
-            this.btnProgressHistory.Caption = "Lịch Sử Tiến Độ";
+            this.btnProgressHistory.Caption = "Lịch sử tiến độ";
             this.btnProgressHistory.Id = 12;
             this.btnProgressHistory.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_history_32;
             this.btnProgressHistory.ImageOptions.LargeImageIndex = 38;
@@ -231,7 +233,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Caption = "Đăng Xuất";
+            this.btnLogOut.Caption = "Đăng xuất";
             this.btnLogOut.Id = 14;
             this.btnLogOut.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_log_out_32;
             this.btnLogOut.Name = "btnLogOut";
@@ -249,6 +251,12 @@
             this.barEditItem1.Edit = this.repositoryItemTextEdit1;
             this.barEditItem1.Id = 16;
             this.barEditItem1.Name = "barEditItem1";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 18;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // Function
             // 
@@ -308,12 +316,6 @@
             this.documentManager1.View = this.tabbedView1;
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 18;
-            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // frmMain
             // 

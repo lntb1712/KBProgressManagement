@@ -75,5 +75,15 @@ namespace KBProgressManagement.UI
         {
             OpenChildForm(new frmGroupManagement(), this);
         }
+
+        private void btnStageRegistration_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmStageRegistration(), this);
+        }
+
+        private void btnPart_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmPartRegistration(), this);
+        }
     }
 }

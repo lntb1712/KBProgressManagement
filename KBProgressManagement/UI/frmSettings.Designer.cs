@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.btnTestConnection = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnSetting = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSetting = new DevExpress.XtraEditors.SimpleButton();
+            this.btnTestConnection = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
@@ -77,6 +77,36 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(456, 156);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(211, 31);
+            this.btnExit.StyleController = this.layoutControl1;
+            this.btnExit.TabIndex = 10;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.Location = new System.Drawing.Point(238, 156);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(214, 31);
+            this.btnSetting.StyleController = this.layoutControl1;
+            this.btnSetting.TabIndex = 9;
+            this.btnSetting.Text = "Lưu cài đặt";
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // btnTestConnection
+            // 
+            this.btnTestConnection.Location = new System.Drawing.Point(12, 156);
+            this.btnTestConnection.Name = "btnTestConnection";
+            this.btnTestConnection.Size = new System.Drawing.Size(222, 31);
+            this.btnTestConnection.StyleController = this.layoutControl1;
+            this.btnTestConnection.TabIndex = 8;
+            this.btnTestConnection.Text = "Kiểm tra kết nối";
+            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -93,16 +123,6 @@
             this.Root.Size = new System.Drawing.Size(679, 237);
             this.Root.TextVisible = false;
             // 
-            // btnTestConnection
-            // 
-            this.btnTestConnection.Location = new System.Drawing.Point(12, 156);
-            this.btnTestConnection.Name = "btnTestConnection";
-            this.btnTestConnection.Size = new System.Drawing.Size(222, 31);
-            this.btnTestConnection.StyleController = this.layoutControl1;
-            this.btnTestConnection.TabIndex = 8;
-            this.btnTestConnection.Text = "Kiểm tra kết nối";
-            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnTestConnection;
@@ -112,16 +132,6 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // btnSetting
-            // 
-            this.btnSetting.Location = new System.Drawing.Point(238, 156);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(214, 31);
-            this.btnSetting.StyleController = this.layoutControl1;
-            this.btnSetting.TabIndex = 9;
-            this.btnSetting.Text = "Lưu cài đặt";
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnSetting;
@@ -130,16 +140,6 @@
             this.layoutControlItem6.Size = new System.Drawing.Size(218, 73);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(456, 156);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(211, 31);
-            this.btnExit.StyleController = this.layoutControl1;
-            this.btnExit.TabIndex = 10;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // layoutControlItem7
             // 
