@@ -26,5 +26,98 @@ namespace KBProgressManagement.Properties
                 return defaultInstance;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Username
+        {
+            get
+            {
+                return ((string)(this["UserName"]));
+            }
+            set
+            {
+                this["UserName"] = value;
+            }
+        }
+
+
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Password
+        {
+            get
+            {
+                return ((string)(this["Password"]));
+            }
+            set
+            {
+                this["Password"] = value;
+            }
+        }
+
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FullName
+        {
+            get
+            {
+                return ((string)(this["FullName"]));
+            }
+            set
+            {
+                this["FullName"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GroupID
+        {
+            get
+            {
+                return ((string)(this["GroupID"]));
+            }
+            set
+            {
+                this["GroupID"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PrintName
+        {
+            get
+            {
+                return ((string)(this["PrintName"]));
+            }
+            set
+            {
+                this["PrintName"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CutSetting
+        {
+            get
+            {
+                return ((string)(this["CutSetting"]));
+            }
+            set
+            {
+                this["CutSetting"] = value;
+            }
+        }
     }
 }

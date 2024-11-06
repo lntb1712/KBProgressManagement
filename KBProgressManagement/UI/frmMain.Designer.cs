@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.txtFullName = new DevExpress.XtraBars.BarStaticItem();
             this.btnUserManagement = new DevExpress.XtraBars.BarButtonItem();
             this.btnGroupManagement = new DevExpress.XtraBars.BarButtonItem();
             this.btnStageRegistration = new DevExpress.XtraBars.BarButtonItem();
@@ -42,27 +45,36 @@
             this.btnProgress = new DevExpress.XtraBars.BarButtonItem();
             this.btnProgressHistory = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogOut = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.Function = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.txtFullName = new DevExpress.XtraBars.BarStaticItem();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // ribbon
             // 
             this.ribbon.CaptionBarItemLinks.Add(this.txtFullName);
-            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(56, 51, 56, 51);
+            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(87, 70, 87, 70);
             this.ribbon.ExpandCollapseItem.Id = 0;
+            this.ribbon.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.txtFullName,
             this.ribbon.ExpandCollapseItem,
             this.btnUserManagement,
             this.btnGroupManagement,
@@ -79,21 +91,27 @@
             this.btnLogOut,
             this.barStaticItem1,
             this.barEditItem1,
-            this.txtFullName});
+            this.barButtonItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.ribbon.MaxItemId = 18;
+            this.ribbon.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.ribbon.MaxItemId = 19;
             this.ribbon.Name = "ribbon";
-            this.ribbon.OptionsMenuMinWidth = 613;
+            this.ribbon.OptionsMenuMinWidth = 943;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
-            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemTextEdit1});
-            this.ribbon.Size = new System.Drawing.Size(1736, 193);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.Function});
+            this.ribbon.Size = new System.Drawing.Size(1848, 231);
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Caption = "FullName";
+            this.txtFullName.Id = 17;
+            this.txtFullName.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_user_48;
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // btnUserManagement
             // 
+            this.btnUserManagement.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.btnUserManagement.Caption = "Quản Lí Người Dùng";
             this.btnUserManagement.Id = 1;
             this.btnUserManagement.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_user_48;
@@ -101,6 +119,7 @@
             this.btnUserManagement.LargeWidth = 100;
             this.btnUserManagement.Name = "btnUserManagement";
             this.btnUserManagement.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnUserManagement.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserManagement_ItemClick);
             // 
             // btnGroupManagement
             // 
@@ -108,9 +127,10 @@
             this.btnGroupManagement.Id = 2;
             this.btnGroupManagement.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.Account;
             this.btnGroupManagement.ImageOptions.LargeImageIndex = 38;
-            this.btnGroupManagement.LargeWidth = 100;
+            this.btnGroupManagement.LargeWidth = 125;
             this.btnGroupManagement.Name = "btnGroupManagement";
             this.btnGroupManagement.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnGroupManagement.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGroupManagement_ItemClick);
             // 
             // btnStageRegistration
             // 
@@ -121,7 +141,6 @@
             this.btnStageRegistration.LargeWidth = 100;
             this.btnStageRegistration.Name = "btnStageRegistration";
             this.btnStageRegistration.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnStageRegistration.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStageRegistration_ItemClick);
             // 
             // btnPart
             // 
@@ -149,7 +168,7 @@
             this.btnProductPart.Id = 6;
             this.btnProductPart.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.structure;
             this.btnProductPart.ImageOptions.LargeImageIndex = 38;
-            this.btnProductPart.LargeWidth = 100;
+            this.btnProductPart.LargeWidth = 150;
             this.btnProductPart.Name = "btnProductPart";
             this.btnProductPart.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
@@ -218,16 +237,31 @@
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // ribbonPage1
+            // barStaticItem1
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.barStaticItem1.Caption = "barStaticItem1";
+            this.barStaticItem1.Id = 15;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Caption = "barEditItem1";
+            this.barEditItem1.Edit = this.repositoryItemTextEdit1;
+            this.barEditItem1.Id = 16;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // Function
+            // 
+            this.Function.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Function.Appearance.Options.UseFont = true;
+            this.Function.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
             this.ribbonPageGroup3,
             this.ribbonPageGroup4,
             this.ribbonPageGroup5});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.Function.Name = "Function";
+            this.Function.Text = "Chức Năng";
             // 
             // ribbonPageGroup1
             // 
@@ -265,59 +299,43 @@
             this.ribbonPageGroup5.Alignment = DevExpress.XtraBars.Ribbon.RibbonPageGroupAlignment.Far;
             this.ribbonPageGroup5.ItemLinks.Add(this.btnLogOut);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "Setting";
+            this.ribbonPageGroup5.Text = "Cài Đặt";
             // 
-            // ribbonStatusBar
+            // documentManager1
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 1071);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1736, 30);
+            this.documentManager1.MdiParent = this;
+            this.documentManager1.MenuManager = this.ribbon;
+            this.documentManager1.View = this.tabbedView1;
+            this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
+            this.tabbedView1});
             // 
-            // barStaticItem1
+            // barButtonItem1
             // 
-            this.barStaticItem1.Caption = "barStaticItem1";
-            this.barStaticItem1.Id = 15;
-            this.barStaticItem1.Name = "barStaticItem1";
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 18;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // barEditItem1
+            // frmMain
             // 
-            this.barEditItem1.Caption = "barEditItem1";
-            this.barEditItem1.Edit = this.repositoryItemTextEdit1;
-            this.barEditItem1.Id = 16;
-            this.barEditItem1.Name = "barEditItem1";
-            // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.Caption = "FullName";
-            this.txtFullName.Id = 17;
-            this.txtFullName.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_user_48;
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // frmMaincs
-            // 
+            this.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1736, 1101);
-            this.Controls.Add(this.ribbonStatusBar);
+            this.ClientSize = new System.Drawing.Size(1848, 778);
             this.Controls.Add(this.ribbon);
-            this.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.IconOptions.Image = global::KBProgressManagement.Properties.Resources.logo;
-            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.Name = "frmMaincs";
+            this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.Name = "frmMain";
             this.Ribbon = this.ribbon;
-            this.StatusBar = this.ribbonStatusBar;
             this.Text = "KB PROGRESS MANAGEMENT";
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,9 +344,8 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage Function;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarButtonItem btnUserManagement;
         private DevExpress.XtraBars.BarButtonItem btnGroupManagement;
         private DevExpress.XtraBars.BarButtonItem btnStageRegistration;
@@ -350,5 +367,8 @@
         private DevExpress.XtraBars.BarStaticItem txtFullName;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
