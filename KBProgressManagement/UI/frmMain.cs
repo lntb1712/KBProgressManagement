@@ -85,5 +85,20 @@ namespace KBProgressManagement.UI
         {
             OpenChildForm(new frmPartRegistration(), this);
         }
+
+        private void btnProduct_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmProductRegistration(), this);
+        }
+
+        private void btnProductPart_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmProductPart(), this);
+        }
+
+        private void btnPrint_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmPrintLabel(), this);
+        }
     }
 }

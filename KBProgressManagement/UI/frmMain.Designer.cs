@@ -163,6 +163,7 @@
             this.btnProduct.LargeWidth = 100;
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProduct_ItemClick);
             // 
             // btnProductPart
             // 
@@ -173,6 +174,7 @@
             this.btnProductPart.LargeWidth = 150;
             this.btnProductPart.Name = "btnProductPart";
             this.btnProductPart.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnProductPart.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProductPart_ItemClick);
             // 
             // btnPrint
             // 
@@ -183,6 +185,7 @@
             this.btnPrint.LargeWidth = 100;
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrint_ItemClick);
             // 
             // btnReprint
             // 
