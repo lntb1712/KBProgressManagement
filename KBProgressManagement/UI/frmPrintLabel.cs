@@ -20,7 +20,7 @@ namespace KBProgressManagement.UI
         private BindingSource productList = new BindingSource();
         private BindingSource printLabelDetailList = new BindingSource();
         private BindingSource processDetail = new BindingSource();
-        private List<string> cutModeList = new List<string>();
+
 
 
         public frmPrintLabel()
@@ -30,22 +30,9 @@ namespace KBProgressManagement.UI
 
         private void frmPrintLabel_Load(object sender, EventArgs e)
         {
-            pcbPrintPreview.LayoutFile = Application.StartupPath + @"\Label1-2.mllayx";
+            pcbPrintPreview.LayoutFile = Application.StartupPath + @"\Layout.mllayx";
             txtPrintTime.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cboPrintName.Properties.DataSource = System.Drawing.Printing.PrinterSettings.InstalledPrinters;
-
-            if (cboCutMode.Properties.DataSource == null)
-            {
-                cutModeList.Add("Every");
-                cutModeList.Add("Batch");
-                cutModeList.Add("None");
-            }
-            cboCutMode.Properties.DataSource = cutModeList;
-
-            cboPrintName.EditValue = Properties.Settings.Default.PrintName;
-            cboCutMode.EditValue = Properties.Settings.Default.CutSetting;
-
-
             LoadCBOProductCode();
             cboProductID.ItemIndex = 0;
 
@@ -188,12 +175,12 @@ namespace KBProgressManagement.UI
             try
             {
                 MLComponent mLComponent = new MLComponent();
-                string filePath = Application.StartupPath + @"\Label1-2.mllayx";
+                string filePath = Application.StartupPath + @"\Layout.mllayx";
                 mLComponent.LayoutFile = filePath;
 
                 mLComponent.Setting = "DRV:" + cboPrintName.EditValue.ToString();
                 mLComponent.Protocol = SATO.MLComponent.Protocols.Status4;
-                mLComponent.MultiCut = int.Parse(spinCutNum.EditValue.ToString());
+             
 
 
                 mLComponent.Timeout = 3;
@@ -247,6 +234,7 @@ namespace KBProgressManagement.UI
             string LotNo = txtLotNo.Text;
             string ProductLine = txtProductLine.Text;
             string ProductCode = cboProductID.EditValue.ToString();
+            DateTime DueDate = Convert.ToDateTime(dueDate.EditValue.ToString());
             int boxNo;
 
             if (TotalQuantity.Equals(""))
@@ -273,6 +261,11 @@ namespace KBProgressManagement.UI
                 XtraMessageBox.Show("Please select printer", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (dueDate.EditValue == null)
+            {
+                XtraMessageBox.Show("Please choose Due Date", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             int rsOdd = Convert.ToInt32(TotalQuantity) / Convert.ToInt32(txtQuantity.Text);
             int rsOut = Convert.ToInt32(TotalQuantity) - Convert.ToInt32(txtQuantity.Text) * rsOdd;
@@ -281,7 +274,7 @@ namespace KBProgressManagement.UI
                 if (Convert.ToInt32(TotalQuantity) < Convert.ToInt32(txtQuantity.Text))
                 {
                     boxNo = autoIncreaseBoxNo();
-                    PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(TotalQuantity), Properties.Settings.Default.FullName);
+                    PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(TotalQuantity),DueDate, Properties.Settings.Default.FullName);
                     PrintSetting(boxNo);
                 }
                 else
@@ -289,13 +282,13 @@ namespace KBProgressManagement.UI
                     for (int i = 1; i <= rsOdd; i++)
                     {
                         boxNo = autoIncreaseBoxNo();
-                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(txtQuantity.Text), Properties.Settings.Default.FullName);
+                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(txtQuantity.Text),DueDate, Properties.Settings.Default.FullName);
                         PrintSetting(boxNo);
                     }
                     if (Convert.ToInt32(TotalQuantity) % Convert.ToInt32(txtQuantity.Text) != 0)
                     {
                         boxNo = autoIncreaseBoxNo();
-                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, rsOut, Properties.Settings.Default.FullName);
+                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, rsOut,DueDate, Properties.Settings.Default.FullName);
                         PrintSetting(boxNo);
 
                     }
@@ -314,7 +307,6 @@ namespace KBProgressManagement.UI
         private void btnSaveSettings_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.PrintName = cboPrintName.EditValue.ToString();
-            Properties.Settings.Default.CutSetting = cboCutMode.EditValue.ToString();
             Properties.Settings.Default.Save();
 
         }

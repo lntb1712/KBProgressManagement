@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace KBProgressManagement.DTO
 {
-    public class PrintLabelDTO
+    public class PrintLabelHistoryDTO
     {
         private int boxNo;
         private string productCode;
-        private string productName;
         private string partCode;
-        private string partNameVN;
-        private string partNameJP;
         private string productLine;
         private string lotNo;
         private int quantity;
@@ -22,14 +19,11 @@ namespace KBProgressManagement.DTO
         private DateTime printTime;
         private string printBy;
 
-        public PrintLabelDTO(int boxNo, string productCode, string productName, string partCode, string partNameVN, string partNameJP, string productLine, string lotNo, int quantity,DateTime dueDate, DateTime printTime, string printBy)
+        public PrintLabelHistoryDTO(int boxNo, string productCode, string partCode, string productLine, string lotNo, int quantity,DateTime dueDate, DateTime printTime, string printBy)
         {
             this.boxNo = boxNo;
             this.productCode = productCode;
-            this.productName = productName;
             this.partCode = partCode;
-            this.partNameVN = partNameVN;
-            this.partNameJP = partNameJP;
             this.productLine = productLine;
             this.lotNo = lotNo;
             this.quantity = quantity;
@@ -38,22 +32,18 @@ namespace KBProgressManagement.DTO
             this.printBy = printBy;
         }
 
-        public PrintLabelDTO(DataRow row)
+        public PrintLabelHistoryDTO(DataRow row)
         {
             BoxNo = Convert.ToInt32(row["BoxNo"].ToString());
             ProductCode = row["ProductCode"].ToString();
-            ProductName = row["ProductName"].ToString();
             PartCode = row["PartCode"].ToString();
-            PartNameVN = row["PartNameVN"].ToString();
-            PartNameJP = row["PartNameJP"].ToString();
             ProductLine = row["ProductLine"].ToString();
             LotNo = row["LotNo"].ToString();
             Quantity = Convert.ToInt32(row["Quantity"].ToString());
-            DueDate = Convert.ToDateTime(row["DueDate"].ToString());
+            DueDate= Convert.ToDateTime(row["DueDate"].ToString());
             PrintTime = Convert.ToDateTime(row["PrintTime"].ToString());
             PrintBy = row["PrintBy"].ToString();
         }
-
 
         public int BoxNo { get => boxNo; set => boxNo = value; }
         public string PartCode { get => partCode; set => partCode = value; }
@@ -62,10 +52,7 @@ namespace KBProgressManagement.DTO
         public int Quantity { get => quantity; set => quantity = value; }
         public DateTime PrintTime { get => printTime; set => printTime = value; }
         public string PrintBy { get => printBy; set => printBy = value; }
-        public string PartNameVN { get => partNameVN; set => partNameVN = value; }
-        public string PartNameJP { get => partNameJP; set => partNameJP = value; }
         public string ProductCode { get => productCode; set => productCode = value; }
-        public string ProductName { get => productName; set => productName = value; }
         public DateTime DueDate { get => dueDate; set => dueDate = value; }
     }
 }

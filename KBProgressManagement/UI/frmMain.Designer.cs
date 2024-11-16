@@ -196,6 +196,7 @@
             this.btnReprint.LargeWidth = 100;
             this.btnReprint.Name = "btnReprint";
             this.btnReprint.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnReprint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReprint_ItemClick);
             // 
             // btnPrintHistory
             // 

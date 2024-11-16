@@ -30,10 +30,10 @@ namespace KBProgressManagement.DAO
                 }
                 return list;
             }
-            public bool InsertAndUpdatePrintLabel(int BoxNo, string ProductCode, string PartCode, string ProductLine, string LotNo, int Quantity, string PrintBy)
+            public bool InsertAndUpdatePrintLabel(int BoxNo, string ProductCode, string PartCode, string ProductLine, string LotNo, int Quantity,DateTime DueDate, string PrintBy)
             {
-                string query = "exec InsertAndUpdatePrintLabel @BoxNo , @ProductCode , @PartCode , @ProductLine , @LotNo , @Quantity , @PrintBy";
-                int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { BoxNo, ProductCode, PartCode, ProductLine, LotNo, Quantity, PrintBy });
+                string query = "exec InsertAndUpdatePrintLabel @BoxNo , @ProductCode , @PartCode , @ProductLine , @LotNo , @Quantity , @DueDate , @PrintBy";
+                int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { BoxNo, ProductCode, PartCode, ProductLine, LotNo, Quantity, DueDate , PrintBy });
                 return result > 0;
             }
         }

@@ -68,7 +68,7 @@ namespace KBProgressManagement.UI
         {
             txtFullName.Caption=Properties.Settings.Default.FullName;
             groupFunctionsList = GroupFunctionsDAO.Instance.GetGroupFunctionsList(Properties.Settings.Default.GroupID).ToList<GroupFunctionsDTO>();
-            LoadPermission();
+            //LoadPermission();
         }
 
         private void btnGroupManagement_ItemClick(object sender, ItemClickEventArgs e)
@@ -99,6 +99,11 @@ namespace KBProgressManagement.UI
         private void btnPrint_ItemClick(object sender, ItemClickEventArgs e)
         {
             OpenChildForm(new frmPrintLabel(), this);
+        }
+
+        private void btnReprint_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmReprint(),this);
         }
     }
 }
