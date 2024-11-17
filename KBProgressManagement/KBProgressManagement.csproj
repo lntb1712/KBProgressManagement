@@ -137,6 +137,12 @@
     <Compile Include="UI\frmPrintLabel.Designer.cs">
       <DependentUpon>frmPrintLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmPrintLabelHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmPrintLabelHistory.Designer.cs">
+      <DependentUpon>frmPrintLabelHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmProductPart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPrintLabel.resx">
       <DependentUpon>frmPrintLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmPrintLabelHistory.resx">
+      <DependentUpon>frmPrintLabelHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmProductPart.resx">
       <DependentUpon>frmProductPart.cs</DependentUpon>

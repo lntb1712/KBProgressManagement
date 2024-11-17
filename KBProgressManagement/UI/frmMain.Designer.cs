@@ -200,13 +200,14 @@
             // 
             // btnPrintHistory
             // 
-            this.btnPrintHistory.Caption = "Lịch sử in nhãn";
+            this.btnPrintHistory.Caption = "Lịch sử in tem";
             this.btnPrintHistory.Id = 9;
             this.btnPrintHistory.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_print_address_label_48;
             this.btnPrintHistory.ImageOptions.LargeImageIndex = 38;
             this.btnPrintHistory.LargeWidth = 100;
             this.btnPrintHistory.Name = "btnPrintHistory";
             this.btnPrintHistory.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnPrintHistory.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrintHistory_ItemClick);
             // 
             // barCheckItem1
             // 

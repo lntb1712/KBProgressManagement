@@ -105,5 +105,10 @@ namespace KBProgressManagement.UI
         {
             OpenChildForm(new frmReprint(),this);
         }
+
+        private void btnPrintHistory_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmPrintLabelHistory(), this);
+        }
     }
 }

@@ -103,6 +103,7 @@
             this.btnPrint.StyleController = this.layoutControl1;
             this.btnPrint.TabIndex = 10;
             this.btnPrint.Text = "In lại";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnRefresh
             // 

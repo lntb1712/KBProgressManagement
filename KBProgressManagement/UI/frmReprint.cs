@@ -17,15 +17,10 @@ namespace KBProgressManagement.UI
     public partial class frmReprint : DevExpress.XtraEditors.XtraForm
     {
         private BindingSource listPrintLabelAgain = new BindingSource();
-        private List<string> cutModeList = new List<string>();
         public frmReprint()
         {
             InitializeComponent();
         }
-
-     
-
-        
 
         private void LoadPrintLabelAgainList()
         {
@@ -49,7 +44,7 @@ namespace KBProgressManagement.UI
             try
             {
                 MLComponent mLComponent = new MLComponent();
-                string filePath = Application.StartupPath + @"\Label1-2.mllayx";
+                string filePath = Application.StartupPath + @"\Layout.mllayx";
                 mLComponent.LayoutFile = filePath;
 
                 mLComponent.Setting = "DRV:" + cboPrintName.EditValue.ToString();
@@ -142,9 +137,6 @@ namespace KBProgressManagement.UI
             cboPrintName.Properties.DataSource = System.Drawing.Printing.PrinterSettings.InstalledPrinters;
 
             cboPrintName.EditValue = Properties.Settings.Default.PrintName;
-
-
-
             BindingData();
 
             txtBoxNo.Enabled = false;
