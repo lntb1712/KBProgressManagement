@@ -85,6 +85,8 @@
     <Compile Include="DAO\ProcessDetailForPrintLabelDAO.cs" />
     <Compile Include="DAO\ProductPartDAO.cs" />
     <Compile Include="DAO\ProductRegistrationDAO.cs" />
+    <Compile Include="DAO\ProgressDAO.cs" />
+    <Compile Include="DAO\ProgressDetailDAO.cs" />
     <Compile Include="DAO\StageRegistrationDAO.cs" />
     <Compile Include="DTO\AccountManagementDTO.cs" />
     <Compile Include="DTO\GroupFunctionsDTO.cs" />
@@ -97,6 +99,8 @@
     <Compile Include="DTO\ProcessDetailForPrintLabelDTO.cs" />
     <Compile Include="DTO\ProductPartDTO.cs" />
     <Compile Include="DTO\ProductRegistrationDTO.cs" />
+    <Compile Include="DTO\ProgressDetailDTO.cs" />
+    <Compile Include="DTO\ProgressDTO.cs" />
     <Compile Include="DTO\SQLConfig.cs" />
     <Compile Include="DTO\StageRegistrationDTO.cs" />
     <Compile Include="Program.cs" />
@@ -155,6 +159,12 @@
     <Compile Include="UI\frmProductRegistration.Designer.cs">
       <DependentUpon>frmProductRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmProgress.Designer.cs">
+      <DependentUpon>frmProgress.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmReprint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmProductRegistration.resx">
       <DependentUpon>frmProductRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmProgress.resx">
+      <DependentUpon>frmProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmReprint.resx">
       <DependentUpon>frmReprint.cs</DependentUpon>

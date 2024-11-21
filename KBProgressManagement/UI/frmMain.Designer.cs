@@ -225,6 +225,7 @@
             this.btnProgress.Name = "btnProgress";
             this.btnProgress.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnProgress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProgress_ItemClick);
             // 
             // btnProgressHistory
             // 
