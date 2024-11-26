@@ -38,6 +38,8 @@ namespace KBProgressManagement.UI
 
             BindingData();
             txtQuantity.Enabled = false;
+            txtLotNo.Text = DateTime.Now.ToString("yyyyMMdd");
+            txtLotNo.Enabled = false;
 
 
 
@@ -75,8 +77,8 @@ namespace KBProgressManagement.UI
             PrintLabelDetailDTO printLabelDetail = view.GetRow(e.RowHandle) as PrintLabelDetailDTO;
             if (printLabelDetail != null)
             {
-                processDetail.DataSource = ProcessDetailForPrintLabelDAO.Instance.GetProcessListForPrintLabel(printLabelDetail.PartCode);
-                e.ChildList = processDetail;
+
+                e.ChildList = ProcessDetailForPrintLabelDAO.Instance.GetProcessListForPrintLabel(printLabelDetail.PartCode); ;
             }
         }
 
@@ -180,7 +182,7 @@ namespace KBProgressManagement.UI
 
                 mLComponent.Setting = "DRV:" + cboPrintName.EditValue.ToString();
                 mLComponent.Protocol = SATO.MLComponent.Protocols.Status4;
-             
+
 
 
                 mLComponent.Timeout = 3;
@@ -274,7 +276,7 @@ namespace KBProgressManagement.UI
                 if (Convert.ToInt32(TotalQuantity) < Convert.ToInt32(txtQuantity.Text))
                 {
                     boxNo = autoIncreaseBoxNo();
-                    PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(TotalQuantity),DueDate, Properties.Settings.Default.FullName);
+                    PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(TotalQuantity), DueDate, Properties.Settings.Default.FullName);
                     PrintSetting(boxNo);
                 }
                 else
@@ -282,13 +284,13 @@ namespace KBProgressManagement.UI
                     for (int i = 1; i <= rsOdd; i++)
                     {
                         boxNo = autoIncreaseBoxNo();
-                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(txtQuantity.Text),DueDate, Properties.Settings.Default.FullName);
+                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(txtQuantity.Text), DueDate, Properties.Settings.Default.FullName);
                         PrintSetting(boxNo);
                     }
                     if (Convert.ToInt32(TotalQuantity) % Convert.ToInt32(txtQuantity.Text) != 0)
                     {
                         boxNo = autoIncreaseBoxNo();
-                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, rsOut,DueDate, Properties.Settings.Default.FullName);
+                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, rsOut, DueDate, Properties.Settings.Default.FullName);
                         PrintSetting(boxNo);
 
                     }
@@ -311,10 +313,29 @@ namespace KBProgressManagement.UI
 
         }
 
-        private void gvPrintLabelDetail_RowCellClick(object sender, RowCellClickEventArgs e)
+
+
+        private void gvPrintLabelDetail_RowClick(object sender, RowClickEventArgs e)
         {
             LoadPrint();
         }
 
+        private void gvPrintLabelDetail_MasterRowExpanded(object sender, CustomMasterRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            GridView childView = view.GetDetailView(e.RowHandle, e.RelationIndex) as GridView;
+            if (childView != null)
+            {
+                childView.Columns["ProcessID"].Caption = "Mã công đoạn";
+                childView.Columns["ProcessNameVN"].Caption = "Tên công đoạn(Việt)";
+                childView.Columns["ProcessNameJP"].Caption = "Tên công đoạn(Nhật)";
+                childView.Columns["ProcessNumber"].Caption = "Thứ tự công đoạn";
+
+                childView.Columns["ProcessID"].VisibleIndex = 0;
+                childView.Columns["ProcessNameVN"].VisibleIndex = 1;
+                childView.Columns["ProcessNameJP"].VisibleIndex = 2;
+                childView.Columns["ProcessNumber"].VisibleIndex = 3;
+            }
+        }
     }
 }

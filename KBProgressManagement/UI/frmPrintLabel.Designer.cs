@@ -217,11 +217,14 @@
             this.gvPrintLabelDetail.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Embedded;
             this.gvPrintLabelDetail.OptionsDetail.EnableDetailToolTip = true;
             this.gvPrintLabelDetail.OptionsDetail.ShowEmbeddedDetailIndent = DevExpress.Utils.DefaultBoolean.True;
-            this.gvPrintLabelDetail.OptionsPrint.ExpandAllDetails = true;
             this.gvPrintLabelDetail.OptionsPrint.PrintDetails = true;
+            this.gvPrintLabelDetail.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;
+            this.gvPrintLabelDetail.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.False;
             this.gvPrintLabelDetail.OptionsView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             this.gvPrintLabelDetail.OptionsView.ShowGroupPanel = false;
             this.gvPrintLabelDetail.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.True;
+            this.gvPrintLabelDetail.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvPrintLabelDetail_RowClick);
+            this.gvPrintLabelDetail.MasterRowExpanded += new DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventHandler(this.gvPrintLabelDetail_MasterRowExpanded);
             this.gvPrintLabelDetail.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gvPrintLabelDetail_MasterRowGetChildList);
             this.gvPrintLabelDetail.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.gvPrintLabelDetail_MasterRowGetRelationName);
             this.gvPrintLabelDetail.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.gvPrintLabelDetail_MasterRowGetRelationCount);

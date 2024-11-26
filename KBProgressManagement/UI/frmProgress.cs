@@ -30,8 +30,9 @@ namespace KBProgressManagement.UI
         private void frmProgress_Load(object sender, EventArgs e)
         {
             LoadProgress();
-            ExpandAllMasterRows(gvProgress);
+         
             LoadProgressBar();
+          
         }
         public void ExpandAllMasterRows(GridView View)
         {
@@ -47,17 +48,28 @@ namespace KBProgressManagement.UI
                 View.EndUpdate();
             }
         }
+        public void InexpandAllMasterRows(GridView View)
+        {
+            View.BeginUpdate();
+            try
+            {
+                int dataRowCount = View.DataRowCount;
+                for (int rHandle = 0; rHandle < dataRowCount; rHandle++)
+                    View.SetMasterRowExpanded(rHandle, false);
+            }
+            finally
+            {
+                View.EndUpdate();
+            }
+        }
         private void LoadProgressBar() {
+            ExpandAllMasterRows(gvProgress);
             int count =gvProgress.RowCount;
  
            
             for (int k = 0; k < count; k++) {
                 {
                     int countStatusProcess = 0;
-                    //string lotNo = (string)gvProgress.GetRowCellValue(k, colLotNo);
-                    //string productCode= (string)gvProgress.GetRowCellValue(k, colProductCode);
-                    //string partCode= (string)gvProgress.GetRowCellValue(k, colPartCode);
-                    //listProcessDetail.DataSource=ProgressDetailDAO.Instance.GetProgressDetailList(lotNo,productCode,partCode);
                     GridView view = (GridView)gvProgress.GetDetailView(k,gvProgress.GetVisibleDetailRelationIndex(k));
 
                     if (view != null)
@@ -78,6 +90,7 @@ namespace KBProgressManagement.UI
 
                 } 
             }
+            InexpandAllMasterRows(gvProgress);
 
         }
 
@@ -115,9 +128,9 @@ namespace KBProgressManagement.UI
             if (progress != null)
             {
                 e.ChildList = ProgressDetailDAO.Instance.GetProgressDetailList(progress.LotNo, progress.ProductCode, progress.PartCode);
+              
             }
         }
-
         private void gvProgress_MasterRowGetRelationName(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventArgs e)
         {
             e.RelationName = "Progress Detail";
@@ -167,10 +180,37 @@ namespace KBProgressManagement.UI
             }
         }
 
-     
-      
+        private void gvProgress_MasterRowExpanded(object sender, CustomMasterRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            GridView childView = view.GetDetailView(e.RowHandle, e.RelationIndex) as GridView;
+            if (childView != null)
+            {
+                childView.Columns["ProcessID"].Caption = "Mã công đoạn";
+                childView.Columns["ProcessNameVN"].Caption = "Tên công đoạn(Việt)";
+                childView.Columns["ProcessNameJP"].Caption = "Tên công đoạn(Nhật)";
+                childView.Columns["Total"].Caption ="Số lượng";
+                childView.Columns["Case"].Caption = "Số lượng box";
+                childView.Columns["NGQuantity"].Caption ="Số lượng hao hụt";
+                childView.Columns["CQty"].Caption = "Số lượng tiêu thụ";
+                childView.Columns["UpdateTime"].Caption = "Thời gian cập nhật";
 
-       
+                childView.Columns["ProcessID"].VisibleIndex = 0;
+                childView.Columns["ProcessNameVN"].VisibleIndex =1;
+                childView.Columns["ProcessNameJP"].VisibleIndex =2;
+                childView.Columns["Total"].VisibleIndex =3;
+                childView.Columns["Case"].VisibleIndex =4;
+                childView.Columns["NGQuantity"].VisibleIndex= 5;
+                childView.Columns["CQty"].VisibleIndex = 6;
+                childView.Columns["UpdateTime"].VisibleIndex =7;
+
+            }
+        }
+
+
+
+
+
 
 
         //private void dgProgress_ViewRegistered(object sender, DevExpress.XtraGrid.ViewOperationEventArgs e)

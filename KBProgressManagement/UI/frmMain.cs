@@ -25,7 +25,7 @@ namespace KBProgressManagement.UI
 
         private void LoadPermission()
         {
-            foreach(var item in Ribbon.Items) 
+            foreach(var item in Ribbon.SelectedPage.Ribbon.Items) 
             {
                 if (item is DevExpress.XtraBars.BarButtonItem barButtonItem)
                 {
@@ -68,7 +68,8 @@ namespace KBProgressManagement.UI
         {
             txtFullName.Caption=Properties.Settings.Default.FullName;
             groupFunctionsList = GroupFunctionsDAO.Instance.GetGroupFunctionsList(Properties.Settings.Default.GroupID).ToList<GroupFunctionsDTO>();
-            //LoadPermission();
+            LoadPermission();
+            dateNow.Caption = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void btnGroupManagement_ItemClick(object sender, ItemClickEventArgs e)
@@ -114,6 +115,34 @@ namespace KBProgressManagement.UI
         private void btnProgress_ItemClick(object sender, ItemClickEventArgs e)
         {
             OpenChildForm(new frmProgress(), this);
+        }
+
+        private void btnProgressHistory_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmProgressHistory(), this);
+        }
+
+        private void btnChartOverTime_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmChartProgressOverTime(), this);
+        }
+
+        private void btnChartProgressCount_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenChildForm(new frmChartProgress(),this);
+        }
+
+        private void ribbon_SelectedPageChanged(object sender, EventArgs e)
+        {
+            LoadPermission();
+        }
+
+        private void btnLogOut_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
         }
     }
 }

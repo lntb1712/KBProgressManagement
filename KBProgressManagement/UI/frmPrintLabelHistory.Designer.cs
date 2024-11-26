@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            this.colDueDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.dgPrintLabelHistory = new DevExpress.XtraGrid.GridControl();
@@ -38,7 +41,6 @@
             this.colProductLine = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLotNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDueDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrintTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrintBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -52,6 +54,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colDueDate
+            // 
+            this.colDueDate.Caption = "Ngày dự kiến";
+            this.colDueDate.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colDueDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDueDate.FieldName = "DueDate";
+            this.colDueDate.MinWidth = 25;
+            this.colDueDate.Name = "colDueDate";
+            this.colDueDate.Visible = true;
+            this.colDueDate.VisibleIndex = 6;
+            this.colDueDate.Width = 94;
             // 
             // layoutControl1
             // 
@@ -97,6 +111,15 @@
             this.colDueDate,
             this.colPrintTime,
             this.colPrintBy});
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colDueDate;
+            gridFormatRule1.Description = null;
+            gridFormatRule1.Name = "ChangeCellDueDate";
+            formatConditionRuleExpression1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            formatConditionRuleExpression1.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression1.Expression = "DateDiffDay(GetDate([DueDate]), Today()) >= 0";
+            gridFormatRule1.Rule = formatConditionRuleExpression1;
+            this.gvPrintLabelHistory.FormatRules.Add(gridFormatRule1);
             this.gvPrintLabelHistory.GridControl = this.dgPrintLabelHistory;
             this.gvPrintLabelHistory.Name = "gvPrintLabelHistory";
             this.gvPrintLabelHistory.OptionsBehavior.Editable = false;
@@ -160,18 +183,6 @@
             this.colQuantity.Visible = true;
             this.colQuantity.VisibleIndex = 5;
             this.colQuantity.Width = 94;
-            // 
-            // colDueDate
-            // 
-            this.colDueDate.Caption = "Ngày dự kiến";
-            this.colDueDate.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.colDueDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colDueDate.FieldName = "DueDate";
-            this.colDueDate.MinWidth = 25;
-            this.colDueDate.Name = "colDueDate";
-            this.colDueDate.Visible = true;
-            this.colDueDate.VisibleIndex = 6;
-            this.colDueDate.Width = 94;
             // 
             // colPrintTime
             // 

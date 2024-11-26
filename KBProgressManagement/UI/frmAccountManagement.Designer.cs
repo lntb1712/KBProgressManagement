@@ -263,6 +263,8 @@
             // colUpdateTime
             // 
             this.colUpdateTime.Caption = "Thời Gian Cập Nhật";
+            this.colUpdateTime.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colUpdateTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colUpdateTime.FieldName = "UpdateTime";
             this.colUpdateTime.MinWidth = 25;
             this.colUpdateTime.Name = "colUpdateTime";
@@ -276,6 +278,9 @@
             this.cboGroupID.Name = "cboGroupID";
             this.cboGroupID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboGroupID.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GroupID", "Mã nhóm người dùng"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GroupName", "Tên nhóm người dùng")});
             this.cboGroupID.Properties.DropDownRows = 3;
             this.cboGroupID.Properties.NullText = "";
             this.cboGroupID.Size = new System.Drawing.Size(344, 32);

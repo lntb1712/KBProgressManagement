@@ -16,8 +16,9 @@ namespace KBProgressManagement.DTO
         private string productName;
         private string lotNo;
         private int progress;
+        private DateTime dueDate;
 
-        public ProgressDTO(string LotNo, string partCode, string partNameVN, string partNameJP, string productCode, string productName)
+        public ProgressDTO(string LotNo, string partCode, string partNameVN, string partNameJP, string productCode, string productName,DateTime dueDate)
         {
             this.partCode = partCode;
             this.partNameVN = partNameVN;
@@ -25,6 +26,7 @@ namespace KBProgressManagement.DTO
             this.productCode = productCode;
             this.productName = productName;
             this.lotNo = LotNo;
+            this.dueDate =dueDate ;
         }
 
         public ProgressDTO(DataRow row)
@@ -36,6 +38,7 @@ namespace KBProgressManagement.DTO
             PartNameJP = row["PartNameJP"].ToString();
             LotNo = row["LotNo"].ToString();
             Progress = Convert.ToInt32(row["Progress"].ToString());
+            DueDate = Convert.ToDateTime(row["DueDate"].ToString());
         }
 
         public string PartCode { get => partCode; set => partCode = value; }
@@ -45,5 +48,6 @@ namespace KBProgressManagement.DTO
         public string ProductName { get => productName; set => productName = value; }
         public string LotNo { get => lotNo; set => lotNo = value; }
         public int Progress { get => progress; set => progress = value; }
+        public DateTime DueDate { get => dueDate; set => dueDate = value; }
     }
 }

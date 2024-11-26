@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
             this.gvProgressDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colProcessID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProcessNameVN = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,6 +50,7 @@
             this.colPartNameJP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProgressBar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+            this.colDueDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
@@ -204,13 +207,25 @@
             this.colPartCode,
             this.colPartNameVN,
             this.colPartNameJP,
-            this.colProgressBar});
+            this.colProgressBar,
+            this.colDueDate});
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colDueDate;
+            gridFormatRule1.Description = null;
+            gridFormatRule1.Name = "ChangeCellDueDate";
+            formatConditionRuleExpression1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            formatConditionRuleExpression1.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression1.Expression = "DateDiffDay(GetDate([DueDate]), Today()) >= 0";
+            gridFormatRule1.Rule = formatConditionRuleExpression1;
+            this.gvProgress.FormatRules.Add(gridFormatRule1);
             this.gvProgress.GridControl = this.dgProgress;
             this.gvProgress.Name = "gvProgress";
             this.gvProgress.OptionsBehavior.Editable = false;
+            this.gvProgress.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Embedded;
             this.gvProgress.OptionsPrint.AutoWidth = false;
             this.gvProgress.OptionsPrint.ExpandAllDetails = true;
             this.gvProgress.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.gvProgress_MasterRowEmpty);
+            this.gvProgress.MasterRowExpanded += new DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventHandler(this.gvProgress_MasterRowExpanded);
             this.gvProgress.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gvProgress_MasterRowGetChildList);
             this.gvProgress.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.gvProgress_MasterRowGetRelationName);
             this.gvProgress.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.gvProgress_MasterRowGetRelationCount);
@@ -283,13 +298,25 @@
             this.colProgressBar.MinWidth = 25;
             this.colProgressBar.Name = "colProgressBar";
             this.colProgressBar.Visible = true;
-            this.colProgressBar.VisibleIndex = 6;
+            this.colProgressBar.VisibleIndex = 7;
             this.colProgressBar.Width = 94;
             // 
             // repositoryItemProgressBar1
             // 
             this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
             this.repositoryItemProgressBar1.ShowTitle = true;
+            // 
+            // colDueDate
+            // 
+            this.colDueDate.Caption = "Ngày dự kiến";
+            this.colDueDate.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colDueDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDueDate.FieldName = "DueDate";
+            this.colDueDate.MinWidth = 25;
+            this.colDueDate.Name = "colDueDate";
+            this.colDueDate.Visible = true;
+            this.colDueDate.VisibleIndex = 6;
+            this.colDueDate.Width = 94;
             // 
             // layoutControl1
             // 
@@ -502,5 +529,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPartNameJP;
         private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repositoryItemProgressBar1;
         private DevExpress.XtraGrid.Columns.GridColumn colProgressBar;
+        private DevExpress.XtraGrid.Columns.GridColumn colDueDate;
     }
 }

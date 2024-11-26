@@ -48,12 +48,19 @@
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChartProgress = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChartBehindSchedule = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChartProgressCount = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChartOverTime = new DevExpress.XtraBars.BarButtonItem();
+            this.dateNow = new DevExpress.XtraBars.BarStaticItem();
             this.Function = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.Chart = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -91,15 +98,23 @@
             this.btnLogOut,
             this.barStaticItem1,
             this.barEditItem1,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.btnChartProgress,
+            this.btnChartBehindSchedule,
+            this.btnChartProgressCount,
+            this.btnChartOverTime,
+            this.dateNow});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
-            this.ribbon.MaxItemId = 19;
+            this.ribbon.MaxItemId = 24;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsMenuMinWidth = 943;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.Function});
-            this.ribbon.Size = new System.Drawing.Size(1848, 231);
+            this.Function,
+            this.Chart});
+            this.ribbon.QuickToolbarItemLinks.Add(this.dateNow);
+            this.ribbon.Size = new System.Drawing.Size(1940, 231);
+            this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
             // 
             // txtFullName
             // 
@@ -236,6 +251,7 @@
             this.btnProgressHistory.LargeWidth = 100;
             this.btnProgressHistory.Name = "btnProgressHistory";
             this.btnProgressHistory.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnProgressHistory.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProgressHistory_ItemClick);
             // 
             // btnLogOut
             // 
@@ -244,6 +260,7 @@
             this.btnLogOut.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_log_out_32;
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnLogOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogOut_ItemClick);
             // 
             // barStaticItem1
             // 
@@ -263,6 +280,54 @@
             this.barButtonItem1.Caption = "barButtonItem1";
             this.barButtonItem1.Id = 18;
             this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // btnChartProgress
+            // 
+            this.btnChartProgress.Caption = "Thống kê tiến độ";
+            this.btnChartProgress.Id = 19;
+            this.btnChartProgress.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.bar_chart;
+            this.btnChartProgress.LargeWidth = 100;
+            this.btnChartProgress.Name = "btnChartProgress";
+            this.btnChartProgress.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // btnChartBehindSchedule
+            // 
+            this.btnChartBehindSchedule.Caption = "Thống kê chậm tiến độ";
+            this.btnChartBehindSchedule.Id = 20;
+            this.btnChartBehindSchedule.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.recession;
+            this.btnChartBehindSchedule.LargeWidth = 120;
+            this.btnChartBehindSchedule.Name = "btnChartBehindSchedule";
+            this.btnChartBehindSchedule.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            // 
+            // btnChartProgressCount
+            // 
+            this.btnChartProgressCount.Caption = "Thống kê tiến độ";
+            this.btnChartProgressCount.Id = 21;
+            this.btnChartProgressCount.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.bar_chart;
+            this.btnChartProgressCount.LargeWidth = 120;
+            this.btnChartProgressCount.Name = "btnChartProgressCount";
+            this.btnChartProgressCount.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnChartProgressCount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChartProgressCount_ItemClick);
+            // 
+            // btnChartOverTime
+            // 
+            this.btnChartOverTime.Caption = "Thống kê trễ tiến độ";
+            this.btnChartOverTime.Id = 22;
+            this.btnChartOverTime.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.recession;
+            this.btnChartOverTime.LargeWidth = 120;
+            this.btnChartOverTime.Name = "btnChartOverTime";
+            this.btnChartOverTime.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnChartOverTime.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChartOverTime_ItemClick);
+            // 
+            // dateNow
+            // 
+            this.dateNow.Caption = "date";
+            this.dateNow.Id = 23;
+            this.dateNow.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.icons8_date_48;
+            this.dateNow.Name = "dateNow";
+            this.dateNow.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // Function
             // 
@@ -315,6 +380,20 @@
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Cài Đặt";
             // 
+            // Chart
+            // 
+            this.Chart.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup6});
+            this.Chart.Name = "Chart";
+            this.Chart.Text = "Thống kê";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnChartProgressCount);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnChartOverTime);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "Thống kê tiến độ";
+            // 
             // documentManager1
             // 
             this.documentManager1.MdiParent = this;
@@ -329,7 +408,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1848, 778);
+            this.ClientSize = new System.Drawing.Size(1940, 778);
             this.Controls.Add(this.ribbon);
             this.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.IconOptions.Image = global::KBProgressManagement.Properties.Resources.logo;
@@ -378,5 +457,12 @@
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnChartProgress;
+        private DevExpress.XtraBars.BarButtonItem btnChartBehindSchedule;
+        private DevExpress.XtraBars.BarButtonItem btnChartProgressCount;
+        private DevExpress.XtraBars.BarButtonItem btnChartOverTime;
+        private DevExpress.XtraBars.Ribbon.RibbonPage Chart;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarStaticItem dateNow;
     }
 }

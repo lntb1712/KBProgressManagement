@@ -158,6 +158,7 @@ namespace KBProgressManagement.UI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadDataPartRegistration();
+            LoadDataPartProcess();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

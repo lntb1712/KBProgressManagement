@@ -305,6 +305,8 @@
             // colUpdateTime
             // 
             this.colUpdateTime.Caption = "Thời gian cập nhật";
+            this.colUpdateTime.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colUpdateTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colUpdateTime.FieldName = "UpdateTime";
             this.colUpdateTime.MinWidth = 25;
             this.colUpdateTime.Name = "colUpdateTime";

@@ -31,14 +31,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>KB_PROGRESS-removebg-preview.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v24.1" />
+    <Reference Include="DevExpress.Charts.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v24.1" />
     <Reference Include="DevExpress.Data.v24.1" />
     <Reference Include="DevExpress.DataAccess.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v24.1" />
     <Reference Include="DevExpress.Sparkline.v24.1.Core" />
+    <Reference Include="DevExpress.Utils.v24.1.UI, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v24.1.UI, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v24.1.Wizard, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v24.1" />
     <Reference Include="DevExpress.Printing.v24.1.Core" />
     <Reference Include="DevExpress.Drawing.v24.1" />
@@ -74,6 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccountManagementDAO.cs" />
+    <Compile Include="DAO\ChartProgressDAO.cs" />
+    <Compile Include="DAO\ChartProgressOverTimeDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\GroupFunctionsDAO.cs" />
     <Compile Include="DAO\GroupManagementDAO.cs" />
@@ -87,8 +97,11 @@
     <Compile Include="DAO\ProductRegistrationDAO.cs" />
     <Compile Include="DAO\ProgressDAO.cs" />
     <Compile Include="DAO\ProgressDetailDAO.cs" />
+    <Compile Include="DAO\ProgressHistoryDAO.cs" />
     <Compile Include="DAO\StageRegistrationDAO.cs" />
     <Compile Include="DTO\AccountManagementDTO.cs" />
+    <Compile Include="DTO\ChartProgressDTO.cs" />
+    <Compile Include="DTO\ChartProgressOverTimeDTO.cs" />
     <Compile Include="DTO\GroupFunctionsDTO.cs" />
     <Compile Include="DTO\GroupManagementDTO.cs" />
     <Compile Include="DTO\PartMasterDTO.cs" />
@@ -101,6 +114,7 @@
     <Compile Include="DTO\ProductRegistrationDTO.cs" />
     <Compile Include="DTO\ProgressDetailDTO.cs" />
     <Compile Include="DTO\ProgressDTO.cs" />
+    <Compile Include="DTO\ProgressHistoryDTO.cs" />
     <Compile Include="DTO\SQLConfig.cs" />
     <Compile Include="DTO\StageRegistrationDTO.cs" />
     <Compile Include="Program.cs" />
@@ -110,6 +124,18 @@
     </Compile>
     <Compile Include="UI\frmAccountManagement.Designer.cs">
       <DependentUpon>frmAccountManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmChartProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmChartProgress.Designer.cs">
+      <DependentUpon>frmChartProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmChartProgressOverTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmChartProgressOverTime.Designer.cs">
+      <DependentUpon>frmChartProgressOverTime.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmGroupManagement.cs">
       <SubType>Form</SubType>
@@ -165,6 +191,12 @@
     <Compile Include="UI\frmProgress.Designer.cs">
       <DependentUpon>frmProgress.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmProgressHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmProgressHistory.Designer.cs">
+      <DependentUpon>frmProgressHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmReprint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +229,12 @@
     <EmbeddedResource Include="UI\frmAccountManagement.resx">
       <DependentUpon>frmAccountManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmChartProgress.resx">
+      <DependentUpon>frmChartProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmChartProgressOverTime.resx">
+      <DependentUpon>frmChartProgressOverTime.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmGroupManagement.resx">
       <DependentUpon>frmGroupManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmProgress.resx">
       <DependentUpon>frmProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmProgressHistory.resx">
+      <DependentUpon>frmProgressHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmReprint.resx">
       <DependentUpon>frmReprint.cs</DependentUpon>
@@ -291,6 +332,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\work-process.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar-chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recession.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KB_PROGRESS-removebg-preview.ico" />
+    <None Include="Resources\icons8-date-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
