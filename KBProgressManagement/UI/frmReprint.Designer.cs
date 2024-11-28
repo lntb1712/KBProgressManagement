@@ -32,11 +32,10 @@
             DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
             this.colDueDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnQuickPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.txtLotNo = new DevExpress.XtraEditors.TextEdit();
-            this.cboPrintName = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtPartCode = new DevExpress.XtraEditors.TextEdit();
             this.txtBoxNo = new DevExpress.XtraEditors.TextEdit();
             this.dgReprint = new DevExpress.XtraGrid.GridControl();
@@ -60,11 +59,11 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cboPrintName = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLotNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboPrintName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPartCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgReprint)).BeginInit();
@@ -77,6 +76,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboPrintName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // colDueDate
@@ -93,13 +94,14 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btnQuickPrint);
             this.layoutControl1.Controls.Add(this.btnPrint);
             this.layoutControl1.Controls.Add(this.btnRefresh);
             this.layoutControl1.Controls.Add(this.txtLotNo);
-            this.layoutControl1.Controls.Add(this.cboPrintName);
             this.layoutControl1.Controls.Add(this.txtPartCode);
             this.layoutControl1.Controls.Add(this.txtBoxNo);
             this.layoutControl1.Controls.Add(this.dgReprint);
+            this.layoutControl1.Controls.Add(this.cboPrintName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -108,12 +110,27 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // btnQuickPrint
+            // 
+            this.btnQuickPrint.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.printer;
+            this.btnQuickPrint.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnQuickPrint.Location = new System.Drawing.Point(1579, 86);
+            this.btnQuickPrint.Name = "btnQuickPrint";
+            this.btnQuickPrint.Padding = new System.Windows.Forms.Padding(0, 17, 0, 17);
+            this.btnQuickPrint.Size = new System.Drawing.Size(184, 70);
+            this.btnQuickPrint.StyleController = this.layoutControl1;
+            this.btnQuickPrint.TabIndex = 11;
+            this.btnQuickPrint.Text = "In lại nhanh";
+            this.btnQuickPrint.Click += new System.EventHandler(this.btnQuickPrint_Click);
+            // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(1391, 81);
+            this.btnPrint.ImageOptions.Image = global::KBProgressManagement.Properties.Resources._2;
+            this.btnPrint.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnPrint.Location = new System.Drawing.Point(1391, 86);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Padding = new System.Windows.Forms.Padding(0, 17, 0, 17);
-            this.btnPrint.Size = new System.Drawing.Size(372, 65);
+            this.btnPrint.Size = new System.Drawing.Size(184, 70);
             this.btnPrint.StyleController = this.layoutControl1;
             this.btnPrint.TabIndex = 10;
             this.btnPrint.Text = "In lại";
@@ -121,10 +138,12 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.refresh;
+            this.btnRefresh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnRefresh.Location = new System.Drawing.Point(1391, 12);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Padding = new System.Windows.Forms.Padding(0, 17, 0, 17);
-            this.btnRefresh.Size = new System.Drawing.Size(372, 65);
+            this.btnRefresh.Size = new System.Drawing.Size(372, 70);
             this.btnRefresh.StyleController = this.layoutControl1;
             this.btnRefresh.TabIndex = 9;
             this.btnRefresh.Text = "Làm mới";
@@ -140,29 +159,9 @@
             this.txtLotNo.StyleController = this.layoutControl1;
             this.txtLotNo.TabIndex = 8;
             // 
-            // cboPrintName
-            // 
-            this.cboPrintName.Location = new System.Drawing.Point(691, 110);
-            this.cboPrintName.Name = "cboPrintName";
-            this.cboPrintName.Properties.Appearance.Options.UseTextOptions = true;
-            this.cboPrintName.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.cboPrintName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboPrintName.Properties.PopupView = this.gridLookUpEdit1View;
-            this.cboPrintName.Size = new System.Drawing.Size(696, 32);
-            this.cboPrintName.StyleController = this.layoutControl1;
-            this.cboPrintName.TabIndex = 7;
-            // 
-            // gridLookUpEdit1View
-            // 
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
             // txtPartCode
             // 
-            this.txtPartCode.Location = new System.Drawing.Point(12, 110);
+            this.txtPartCode.Location = new System.Drawing.Point(12, 115);
             this.txtPartCode.Name = "txtPartCode";
             this.txtPartCode.Properties.Appearance.Options.UseTextOptions = true;
             this.txtPartCode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -182,10 +181,10 @@
             // 
             // dgReprint
             // 
-            this.dgReprint.Location = new System.Drawing.Point(12, 150);
+            this.dgReprint.Location = new System.Drawing.Point(12, 160);
             this.dgReprint.MainView = this.gvReprint;
             this.dgReprint.Name = "dgReprint";
-            this.dgReprint.Size = new System.Drawing.Size(1751, 567);
+            this.dgReprint.Size = new System.Drawing.Size(1751, 557);
             this.dgReprint.TabIndex = 4;
             this.dgReprint.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvReprint});
@@ -343,7 +342,8 @@
             this.layoutControlItem5,
             this.layoutControlItem4,
             this.layoutControlItem6,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.layoutControlItem8});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1775, 729);
             this.Root.TextVisible = false;
@@ -351,9 +351,9 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dgReprint;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 138);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 148);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1755, 571);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1755, 561);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -364,7 +364,7 @@
             this.layoutControlItem2.Control = this.txtBoxNo;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(679, 69);
+            this.layoutControlItem2.Size = new System.Drawing.Size(679, 74);
             this.layoutControlItem2.Text = "Số Box";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(128, 26);
@@ -374,9 +374,9 @@
             this.layoutControlItem3.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem3.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem3.Control = this.txtPartCode;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 69);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 74);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(679, 69);
+            this.layoutControlItem3.Size = new System.Drawing.Size(679, 74);
             this.layoutControlItem3.Text = "Mã Linh Kiện";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(128, 26);
@@ -388,7 +388,7 @@
             this.layoutControlItem5.Control = this.txtLotNo;
             this.layoutControlItem5.Location = new System.Drawing.Point(679, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(700, 69);
+            this.layoutControlItem5.Size = new System.Drawing.Size(700, 74);
             this.layoutControlItem5.Text = "Số Lot";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(128, 26);
@@ -398,9 +398,9 @@
             this.layoutControlItem4.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem4.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem4.Control = this.cboPrintName;
-            this.layoutControlItem4.Location = new System.Drawing.Point(679, 69);
+            this.layoutControlItem4.Location = new System.Drawing.Point(679, 74);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(700, 69);
+            this.layoutControlItem4.Size = new System.Drawing.Size(700, 74);
             this.layoutControlItem4.Text = "Chọn Máy In";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(128, 26);
@@ -410,19 +410,40 @@
             this.layoutControlItem6.Control = this.btnRefresh;
             this.layoutControlItem6.Location = new System.Drawing.Point(1379, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(376, 69);
+            this.layoutControlItem6.Size = new System.Drawing.Size(376, 74);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnPrint;
-            this.layoutControlItem7.Location = new System.Drawing.Point(1379, 69);
+            this.layoutControlItem7.Location = new System.Drawing.Point(1379, 74);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(376, 69);
+            this.layoutControlItem7.Size = new System.Drawing.Size(188, 74);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             this.layoutControlItem7.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.btnQuickPrint;
+            this.layoutControlItem8.Location = new System.Drawing.Point(1567, 74);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(188, 74);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // cboPrintName
+            // 
+            this.cboPrintName.Location = new System.Drawing.Point(691, 115);
+            this.cboPrintName.Name = "cboPrintName";
+            this.cboPrintName.Properties.Appearance.Options.UseTextOptions = true;
+            this.cboPrintName.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cboPrintName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboPrintName.Size = new System.Drawing.Size(696, 32);
+            this.cboPrintName.StyleController = this.layoutControl1;
+            this.cboPrintName.TabIndex = 7;
             // 
             // frmReprint
             // 
@@ -436,8 +457,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtLotNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboPrintName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPartCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBoxNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgReprint)).EndInit();
@@ -450,6 +469,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboPrintName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -461,8 +482,6 @@
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
         private DevExpress.XtraEditors.TextEdit txtLotNo;
-        private DevExpress.XtraEditors.GridLookUpEdit cboPrintName;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraEditors.TextEdit txtPartCode;
         private DevExpress.XtraEditors.TextEdit txtBoxNo;
         private DevExpress.XtraGrid.GridControl dgReprint;
@@ -486,5 +505,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDueDate;
         private DevExpress.XtraGrid.Columns.GridColumn colPrintTime;
         private DevExpress.XtraGrid.Columns.GridColumn colPrintBy;
+        private DevExpress.XtraEditors.SimpleButton btnQuickPrint;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraEditors.LookUpEdit cboPrintName;
     }
 }

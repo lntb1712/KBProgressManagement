@@ -81,9 +81,11 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.refresh;
+            this.btnRefresh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnRefresh.Location = new System.Drawing.Point(12, 12);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(1718, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(1718, 36);
             this.btnRefresh.StyleController = this.layoutControl1;
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Làm mới";
@@ -91,10 +93,10 @@
             // 
             // dgPrintLabelHistory
             // 
-            this.dgPrintLabelHistory.Location = new System.Drawing.Point(12, 47);
+            this.dgPrintLabelHistory.Location = new System.Drawing.Point(12, 52);
             this.dgPrintLabelHistory.MainView = this.gvPrintLabelHistory;
             this.dgPrintLabelHistory.Name = "dgPrintLabelHistory";
-            this.dgPrintLabelHistory.Size = new System.Drawing.Size(1718, 685);
+            this.dgPrintLabelHistory.Size = new System.Drawing.Size(1718, 680);
             this.dgPrintLabelHistory.TabIndex = 4;
             this.dgPrintLabelHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPrintLabelHistory});
@@ -220,9 +222,9 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dgPrintLabelHistory;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 35);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1722, 689);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1722, 684);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -231,7 +233,7 @@
             this.layoutControlItem2.Control = this.btnRefresh;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1722, 35);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1722, 40);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 

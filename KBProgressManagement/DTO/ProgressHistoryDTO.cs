@@ -24,8 +24,9 @@ namespace KBProgressManagement.DTO
         private int _nGQuantity;
         private DateTime _updateTime;
         private DateTime _dueDate;
+        private string lotNo;
 
-        public ProgressHistoryDTO(int boxNo, string productCode, string productName, string partCode, string partNameVN, string partNameJP, string processID, string processNameVN, string processNameJP, int quantity, int ngQuantity, DateTime updateTime, DateTime dueDate)
+        public ProgressHistoryDTO(int boxNo, string productCode, string productName, string partCode, string partNameVN, string partNameJP, string processID, string processNameVN, string processNameJP, int quantity, int ngQuantity, DateTime updateTime, DateTime dueDate,string lotNo)
         {
             BoxNo = boxNo;
             ProductCode = productCode;
@@ -40,6 +41,7 @@ namespace KBProgressManagement.DTO
             NGQuantity = ngQuantity;
             UpdateTime = updateTime;
             DueDate = dueDate;
+            LotNo = lotNo;
         }
 
         public ProgressHistoryDTO(DataRow row)
@@ -57,6 +59,7 @@ namespace KBProgressManagement.DTO
             NGQuantity = Convert.ToInt32(row["NGQuantity"].ToString());
             UpdateTime = Convert.ToDateTime(row["UpdateTime"].ToString());
             DueDate = Convert.ToDateTime(row["DueDate"].ToString());
+            LotNo = row["LotNo"].ToString();
         }
 
         public int BoxNo { get => _boxNo; set => _boxNo = value; }
@@ -72,5 +75,6 @@ namespace KBProgressManagement.DTO
         public int NGQuantity { get => _nGQuantity; set => _nGQuantity = value; }
         public DateTime UpdateTime { get => _updateTime; set => _updateTime = value; }
         public DateTime DueDate { get => _dueDate; set => _dueDate = value; }
+        public string LotNo { get => lotNo; set => lotNo = value; }
     }
 }

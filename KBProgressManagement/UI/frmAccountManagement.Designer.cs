@@ -102,9 +102,11 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(284, 77);
+            this.btnSave.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.save__1_;
+            this.btnSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSave.Location = new System.Drawing.Point(306, 77);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(309, 31);
+            this.btnSave.Size = new System.Drawing.Size(287, 36);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Lưu";
@@ -112,9 +114,11 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.delete;
+            this.btnDelete.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnDelete.Location = new System.Drawing.Point(881, 77);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(270, 31);
+            this.btnDelete.Size = new System.Drawing.Size(270, 36);
             this.btnDelete.StyleController = this.layoutControl1;
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Xóa";
@@ -122,9 +126,11 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.refresh;
+            this.btnRefresh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnRefresh.Location = new System.Drawing.Point(1155, 77);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(300, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(300, 36);
             this.btnRefresh.StyleController = this.layoutControl1;
             this.btnRefresh.TabIndex = 11;
             this.btnRefresh.Text = "Làm mới";
@@ -132,9 +138,11 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.Cancel_32x32;
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnCancel.Location = new System.Drawing.Point(597, 77);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(280, 31);
+            this.btnCancel.Size = new System.Drawing.Size(280, 36);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Hủy";
@@ -142,9 +150,11 @@
             // 
             // btnNew
             // 
+            this.btnNew.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.Add_32x32;
+            this.btnNew.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnNew.Location = new System.Drawing.Point(12, 77);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(268, 31);
+            this.btnNew.Size = new System.Drawing.Size(290, 36);
             this.btnNew.StyleController = this.layoutControl1;
             this.btnNew.TabIndex = 9;
             this.btnNew.Text = "Thêm";
@@ -177,12 +187,12 @@
             // 
             // dgAccountList
             // 
-            this.dgAccountList.Location = new System.Drawing.Point(12, 112);
+            this.dgAccountList.Location = new System.Drawing.Point(12, 117);
             this.dgAccountList.MainView = this.gvAccountList;
             this.dgAccountList.Name = "dgAccountList";
             this.dgAccountList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryPassword});
-            this.dgAccountList.Size = new System.Drawing.Size(1443, 438);
+            this.dgAccountList.Size = new System.Drawing.Size(1443, 433);
             this.dgAccountList.TabIndex = 4;
             this.dgAccountList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAccountList});
@@ -310,9 +320,9 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dgAccountList;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 100);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 105);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1447, 442);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1447, 437);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -369,7 +379,7 @@
             this.layoutControlItem6.Control = this.btnNew;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 65);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(272, 35);
+            this.layoutControlItem6.Size = new System.Drawing.Size(294, 40);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -378,7 +388,7 @@
             this.layoutControlItem7.Control = this.btnCancel;
             this.layoutControlItem7.Location = new System.Drawing.Point(585, 65);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(284, 35);
+            this.layoutControlItem7.Size = new System.Drawing.Size(284, 40);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -387,16 +397,16 @@
             this.layoutControlItem8.Control = this.btnRefresh;
             this.layoutControlItem8.Location = new System.Drawing.Point(1143, 65);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(304, 35);
+            this.layoutControlItem8.Size = new System.Drawing.Size(304, 40);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.btnSave;
-            this.layoutControlItem10.Location = new System.Drawing.Point(272, 65);
+            this.layoutControlItem10.Location = new System.Drawing.Point(294, 65);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(313, 35);
+            this.layoutControlItem10.Size = new System.Drawing.Size(291, 40);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -405,7 +415,7 @@
             this.layoutControlItem9.Control = this.btnDelete;
             this.layoutControlItem9.Location = new System.Drawing.Point(869, 65);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(274, 35);
+            this.layoutControlItem9.Size = new System.Drawing.Size(274, 40);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 

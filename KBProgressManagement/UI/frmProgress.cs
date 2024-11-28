@@ -69,7 +69,7 @@ namespace KBProgressManagement.UI
            
             for (int k = 0; k < count; k++) {
                 {
-                    int countStatusProcess = 0;
+                    float countStatusProcess = 0;
                     GridView view = (GridView)gvProgress.GetDetailView(k,gvProgress.GetVisibleDetailRelationIndex(k));
 
                     if (view != null)
@@ -77,9 +77,23 @@ namespace KBProgressManagement.UI
                       
                         for (int j = 0; j < view.RowCount; j++)
                         {
-                            if ((DateTime)view.GetRowCellValue(j,colUpdateTime)!=default(DateTime))
+                            if (j == view.RowCount - 1)
                             {
-                                countStatusProcess++;
+                                if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime) && (int)view.GetRowCellValue(j, colCQty) == 0)
+                                {
+                                    countStatusProcess++;
+                                }
+                                else if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime))
+                                {
+                                    countStatusProcess +=( float)0.5;
+                                }    
+                            }
+                            else
+                            {
+                                if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime) )
+                                {
+                                    countStatusProcess++;
+                                }
                             }
                         }
            
@@ -171,7 +185,7 @@ namespace KBProgressManagement.UI
                 XlsxExportOptionsEx options = new XlsxExportOptionsEx();
                 options.ExportType = DevExpress.Export.ExportType.WYSIWYG;
                 gvProgress.OptionsPrint.PrintDetails = true;
-                gvProgress.OptionsPrint.ExpandAllDetails = true;
+                ExpandAllMasterRows(gvProgress);
                 dgProgress.ExportToXlsx(saveFileDialog.FileName, options);
             }
             else
@@ -192,7 +206,7 @@ namespace KBProgressManagement.UI
                 childView.Columns["Total"].Caption ="Số lượng";
                 childView.Columns["Case"].Caption = "Số lượng box";
                 childView.Columns["NGQuantity"].Caption ="Số lượng hao hụt";
-                childView.Columns["CQty"].Caption = "Số lượng tiêu thụ";
+                childView.Columns["CQty"].Caption = "Số lượng chưa hoàn thành";
                 childView.Columns["UpdateTime"].Caption = "Thời gian cập nhật";
 
                 childView.Columns["ProcessID"].VisibleIndex = 0;
@@ -203,6 +217,15 @@ namespace KBProgressManagement.UI
                 childView.Columns["NGQuantity"].VisibleIndex= 5;
                 childView.Columns["CQty"].VisibleIndex = 6;
                 childView.Columns["UpdateTime"].VisibleIndex =7;
+
+                childView.Columns["ProcessID"].Width = 225;
+                childView.Columns["ProcessNameVN"].Width = 225;
+                childView.Columns["ProcessNameJP"].Width = 225;
+                childView.Columns["Total"].Width = 225;
+                childView.Columns["Case"].Width = 225;
+                childView.Columns["NGQuantity"].Width = 225;
+                childView.Columns["CQty"].Width = 225;
+                childView.Columns["UpdateTime"].Width = 225;
 
             }
         }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
             this.colDueDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
@@ -47,6 +47,7 @@
             this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUpdateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLotNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -68,7 +69,7 @@
             this.colDueDate.MinWidth = 25;
             this.colDueDate.Name = "colDueDate";
             this.colDueDate.Visible = true;
-            this.colDueDate.VisibleIndex = 11;
+            this.colDueDate.VisibleIndex = 12;
             this.colDueDate.Width = 94;
             // 
             // layoutControl1
@@ -85,9 +86,11 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.refresh;
+            this.btnRefresh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnRefresh.Location = new System.Drawing.Point(12, 12);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(1766, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(1766, 36);
             this.btnRefresh.StyleController = this.layoutControl1;
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Làm mới";
@@ -95,10 +98,10 @@
             // 
             // dgProgressHistory
             // 
-            this.dgProgressHistory.Location = new System.Drawing.Point(12, 47);
+            this.dgProgressHistory.Location = new System.Drawing.Point(12, 52);
             this.dgProgressHistory.MainView = this.gvProgressHistory;
             this.dgProgressHistory.Name = "dgProgressHistory";
-            this.dgProgressHistory.Size = new System.Drawing.Size(1766, 707);
+            this.dgProgressHistory.Size = new System.Drawing.Size(1766, 702);
             this.dgProgressHistory.TabIndex = 4;
             this.dgProgressHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProgressHistory});
@@ -118,23 +121,24 @@
             this.colQuantity,
             this.colNGQuantity,
             this.colUpdateTime,
-            this.colDueDate});
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Column = this.colDueDate;
-            gridFormatRule2.Description = null;
-            gridFormatRule2.Name = "ChangeCellDueDate";
-            formatConditionRuleExpression2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            formatConditionRuleExpression2.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression2.Expression = "DateDiffDay(GetDate([DueDate]), Today()) >= 0";
-            gridFormatRule2.Rule = formatConditionRuleExpression2;
-            this.gvProgressHistory.FormatRules.Add(gridFormatRule2);
+            this.colDueDate,
+            this.colLotNo});
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colDueDate;
+            gridFormatRule1.Description = null;
+            gridFormatRule1.Name = "ChangeCellDueDate";
+            formatConditionRuleExpression1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            formatConditionRuleExpression1.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression1.Expression = "DateDiffDay(GetDate([DueDate]), Today()) >= 0";
+            gridFormatRule1.Rule = formatConditionRuleExpression1;
+            this.gvProgressHistory.FormatRules.Add(gridFormatRule1);
             this.gvProgressHistory.GridControl = this.dgProgressHistory;
             this.gvProgressHistory.Name = "gvProgressHistory";
             this.gvProgressHistory.OptionsBehavior.Editable = false;
             // 
             // colBoxNo
             // 
-            this.colBoxNo.Caption = "Sô Box";
+            this.colBoxNo.Caption = "Số Box";
             this.colBoxNo.FieldName = "BoxNo";
             this.colBoxNo.MinWidth = 25;
             this.colBoxNo.Name = "colBoxNo";
@@ -149,7 +153,7 @@
             this.colProductCode.MinWidth = 25;
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.Visible = true;
-            this.colProductCode.VisibleIndex = 1;
+            this.colProductCode.VisibleIndex = 2;
             this.colProductCode.Width = 94;
             // 
             // colProductName
@@ -159,7 +163,7 @@
             this.colProductName.MinWidth = 25;
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
-            this.colProductName.VisibleIndex = 2;
+            this.colProductName.VisibleIndex = 3;
             this.colProductName.Width = 94;
             // 
             // colPartCode
@@ -169,7 +173,7 @@
             this.colPartCode.MinWidth = 25;
             this.colPartCode.Name = "colPartCode";
             this.colPartCode.Visible = true;
-            this.colPartCode.VisibleIndex = 3;
+            this.colPartCode.VisibleIndex = 4;
             this.colPartCode.Width = 94;
             // 
             // colPartNameVN
@@ -179,7 +183,7 @@
             this.colPartNameVN.MinWidth = 25;
             this.colPartNameVN.Name = "colPartNameVN";
             this.colPartNameVN.Visible = true;
-            this.colPartNameVN.VisibleIndex = 4;
+            this.colPartNameVN.VisibleIndex = 5;
             this.colPartNameVN.Width = 94;
             // 
             // colPartNameJP
@@ -189,7 +193,7 @@
             this.colPartNameJP.MinWidth = 25;
             this.colPartNameJP.Name = "colPartNameJP";
             this.colPartNameJP.Visible = true;
-            this.colPartNameJP.VisibleIndex = 5;
+            this.colPartNameJP.VisibleIndex = 6;
             this.colPartNameJP.Width = 94;
             // 
             // colProcessID
@@ -199,7 +203,7 @@
             this.colProcessID.MinWidth = 25;
             this.colProcessID.Name = "colProcessID";
             this.colProcessID.Visible = true;
-            this.colProcessID.VisibleIndex = 6;
+            this.colProcessID.VisibleIndex = 7;
             this.colProcessID.Width = 94;
             // 
             // colProcessNameVN
@@ -209,7 +213,7 @@
             this.colProcessNameVN.MinWidth = 25;
             this.colProcessNameVN.Name = "colProcessNameVN";
             this.colProcessNameVN.Visible = true;
-            this.colProcessNameVN.VisibleIndex = 7;
+            this.colProcessNameVN.VisibleIndex = 8;
             this.colProcessNameVN.Width = 94;
             // 
             // colProcessNameJP
@@ -219,7 +223,7 @@
             this.colProcessNameJP.MinWidth = 25;
             this.colProcessNameJP.Name = "colProcessNameJP";
             this.colProcessNameJP.Visible = true;
-            this.colProcessNameJP.VisibleIndex = 8;
+            this.colProcessNameJP.VisibleIndex = 9;
             this.colProcessNameJP.Width = 94;
             // 
             // colQuantity
@@ -229,7 +233,7 @@
             this.colQuantity.MinWidth = 25;
             this.colQuantity.Name = "colQuantity";
             this.colQuantity.Visible = true;
-            this.colQuantity.VisibleIndex = 9;
+            this.colQuantity.VisibleIndex = 10;
             this.colQuantity.Width = 94;
             // 
             // colNGQuantity
@@ -239,7 +243,7 @@
             this.colNGQuantity.MinWidth = 25;
             this.colNGQuantity.Name = "colNGQuantity";
             this.colNGQuantity.Visible = true;
-            this.colNGQuantity.VisibleIndex = 10;
+            this.colNGQuantity.VisibleIndex = 11;
             this.colNGQuantity.Width = 94;
             // 
             // colUpdateTime
@@ -251,8 +255,18 @@
             this.colUpdateTime.MinWidth = 25;
             this.colUpdateTime.Name = "colUpdateTime";
             this.colUpdateTime.Visible = true;
-            this.colUpdateTime.VisibleIndex = 12;
+            this.colUpdateTime.VisibleIndex = 13;
             this.colUpdateTime.Width = 94;
+            // 
+            // colLotNo
+            // 
+            this.colLotNo.Caption = "Số Lot";
+            this.colLotNo.FieldName = "LotNo";
+            this.colLotNo.MinWidth = 25;
+            this.colLotNo.Name = "colLotNo";
+            this.colLotNo.Visible = true;
+            this.colLotNo.VisibleIndex = 1;
+            this.colLotNo.Width = 94;
             // 
             // Root
             // 
@@ -268,9 +282,9 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dgProgressHistory;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 35);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1770, 711);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1770, 706);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -279,7 +293,7 @@
             this.layoutControlItem2.Control = this.btnRefresh;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1770, 35);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1770, 40);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -325,5 +339,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraGrid.Columns.GridColumn colDueDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colLotNo;
     }
 }

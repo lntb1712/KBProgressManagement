@@ -46,6 +46,7 @@
             this.pcbPrintPreview = new SATO.MLPreviewComponent.MLPreviewComponentWIN();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnQuickPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrintLabel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveSettings = new DevExpress.XtraEditors.SimpleButton();
             this.txtProductLine = new DevExpress.XtraEditors.TextEdit();
@@ -69,6 +70,7 @@
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.txtProductName = new DevExpress.XtraEditors.TextEdit();
@@ -118,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
@@ -339,6 +342,7 @@
             // 
             // layoutControl3
             // 
+            this.layoutControl3.Controls.Add(this.btnQuickPrint);
             this.layoutControl3.Controls.Add(this.btnPrintLabel);
             this.layoutControl3.Controls.Add(this.btnSaveSettings);
             this.layoutControl3.Controls.Add(this.txtProductLine);
@@ -356,6 +360,19 @@
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
+            // btnQuickPrint
+            // 
+            this.btnQuickPrint.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.printer;
+            this.btnQuickPrint.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnQuickPrint.Location = new System.Drawing.Point(764, 177);
+            this.btnQuickPrint.Name = "btnQuickPrint";
+            this.btnQuickPrint.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
+            this.btnQuickPrint.Size = new System.Drawing.Size(146, 76);
+            this.btnQuickPrint.StyleController = this.layoutControl3;
+            this.btnQuickPrint.TabIndex = 15;
+            this.btnQuickPrint.Text = "In nhanh";
+            this.btnQuickPrint.Click += new System.EventHandler(this.btnQuickPrint_Click);
+            // 
             // btnPrintLabel
             // 
             this.btnPrintLabel.ImageOptions.Image = global::KBProgressManagement.Properties.Resources._as;
@@ -363,7 +380,7 @@
             this.btnPrintLabel.Location = new System.Drawing.Point(615, 177);
             this.btnPrintLabel.Name = "btnPrintLabel";
             this.btnPrintLabel.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
-            this.btnPrintLabel.Size = new System.Drawing.Size(295, 76);
+            this.btnPrintLabel.Size = new System.Drawing.Size(145, 76);
             this.btnPrintLabel.StyleController = this.layoutControl3;
             this.btnPrintLabel.TabIndex = 13;
             this.btnPrintLabel.Text = "In tem";
@@ -480,7 +497,8 @@
             this.splitterItem3,
             this.layoutControlItem15,
             this.layoutControlItem13,
-            this.layoutControlItem16});
+            this.layoutControlItem16,
+            this.layoutControlItem14});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(934, 265);
             this.layoutControlGroup2.TextVisible = false;
@@ -616,9 +634,18 @@
             this.layoutControlItem16.Control = this.btnPrintLabel;
             this.layoutControlItem16.Location = new System.Drawing.Point(603, 165);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(299, 80);
+            this.layoutControlItem16.Size = new System.Drawing.Size(149, 80);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.btnQuickPrint;
+            this.layoutControlItem14.Location = new System.Drawing.Point(752, 165);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(150, 80);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
             // 
             // groupControl1
             // 
@@ -815,6 +842,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
@@ -891,5 +919,7 @@
         private DevExpress.XtraEditors.DateEdit dueDate;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private SATO.MLPreviewComponent.MLPreviewComponentWIN pcbPrintPreview;
+        private DevExpress.XtraEditors.SimpleButton btnQuickPrint;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
     }
 }

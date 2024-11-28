@@ -103,32 +103,42 @@ namespace KBProgressManagement.UI
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (cboPrintName.EditValue == null)
+            List<string> lstBox = new List<string>();
+            if (cboPrintName.EditValue.Equals(""))
             {
                 XtraMessageBox.Show("Please select printer", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (gvReprint.SelectedRowsCount == 0)
+            {
+                XtraMessageBox.Show("Please select label", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             foreach (int rowHandle in gvReprint.GetSelectedRows())
             {
                 try
                 {
-                    PrintSetting();
-                    int boxNo = (int)gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colBoxNo);
-                    string partCode = gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colPartCode).ToString();
-                    string productLine = gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colProductLine).ToString();
-                    string lotNo = gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colLotNo).ToString();
-                    int quantity = (int)gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colQuantity);
-                    string productCode = gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colProductCode).ToString();
-                    DateTime dueDate= DateTime.Parse(gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle,colDueDate).ToString());
-                    PrintLabelHistoryDAO.Instance.InsertPrintLabelHistory(boxNo, productCode, partCode, productLine, lotNo, quantity,dueDate, Properties.Settings.Default.FullName);
-                    XtraMessageBox.Show("Print Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       
+                    int boxNo = (int)gvReprint.GetRowCellValue(rowHandle, colBoxNo);
+                    string partCode = gvReprint.GetRowCellValue(rowHandle, colPartCode).ToString();
+                    string productLine = gvReprint.GetRowCellValue(rowHandle, colProductLine).ToString();
+                    string lotNo = gvReprint.GetRowCellValue(rowHandle, colLotNo).ToString();
+                    int quantity = (int)gvReprint.GetRowCellValue(rowHandle, colQuantity);
+                    string productCode = gvReprint.GetRowCellValue(rowHandle, colProductCode).ToString();
+                    DateTime dueDate = DateTime.Parse(gvReprint.GetRowCellValue(rowHandle, colDueDate).ToString());
+                    PrintLabelHistoryDAO.Instance.InsertPrintLabelHistory(boxNo, productCode, partCode, productLine, lotNo, quantity, dueDate, Properties.Settings.Default.FullName);
+                    lstBox.Add(boxNo.ToString());
+
                 }
                 catch (Exception ex)
                 {
 
-                    XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            frmSpreadSheetForReprint frm = new frmSpreadSheetForReprint(lstBox);
+            frm.ShowDialog();
+        
         }
 
         private void frmReprint_Load(object sender, EventArgs e)
@@ -142,6 +152,48 @@ namespace KBProgressManagement.UI
             txtBoxNo.Enabled = false;
             txtPartCode.Enabled = false;
             txtLotNo.Enabled = false;
+        }
+
+        private void btnQuickPrint_Click(object sender, EventArgs e)
+        {
+            if (cboPrintName.EditValue.Equals("")) 
+            {
+                XtraMessageBox.Show("Please select printer", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (gvReprint.SelectedRowsCount==0) 
+            {
+                XtraMessageBox.Show("Please select label", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (cboPrintName.EditValue.Equals("SATO PW4NX"))
+            {
+                foreach (int rowHandle in gvReprint.GetSelectedRows())
+                {
+                    try
+                    {
+                        PrintSetting();
+                        int boxNo = (int)gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colBoxNo);
+                        string partCode = gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colPartCode).ToString();
+                        string productLine = gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colProductLine).ToString();
+                        string lotNo = gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colLotNo).ToString();
+                        int quantity = (int)gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colQuantity);
+                        string productCode = gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colProductCode).ToString();
+                        DateTime dueDate = DateTime.Parse(gvReprint.GetRowCellValue(gvReprint.FocusedRowHandle, colDueDate).ToString());
+                        PrintLabelHistoryDAO.Instance.InsertPrintLabelHistory(boxNo, productCode, partCode, productLine, lotNo, quantity, dueDate, Properties.Settings.Default.FullName);
+                        XtraMessageBox.Show("Print Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Vui lòng chọn loại máy in", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

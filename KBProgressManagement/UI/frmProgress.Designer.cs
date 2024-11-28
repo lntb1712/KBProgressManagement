@@ -187,12 +187,12 @@
             gridLevelNode1.RelationName = "Level1";
             this.dgProgress.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.dgProgress.Location = new System.Drawing.Point(12, 112);
+            this.dgProgress.Location = new System.Drawing.Point(12, 117);
             this.dgProgress.MainView = this.gvProgress;
             this.dgProgress.Name = "dgProgress";
             this.dgProgress.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemProgressBar1});
-            this.dgProgress.Size = new System.Drawing.Size(1699, 647);
+            this.dgProgress.Size = new System.Drawing.Size(1699, 642);
             this.dgProgress.TabIndex = 4;
             this.dgProgress.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProgress,
@@ -224,6 +224,7 @@
             this.gvProgress.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Embedded;
             this.gvProgress.OptionsPrint.AutoWidth = false;
             this.gvProgress.OptionsPrint.ExpandAllDetails = true;
+            this.gvProgress.OptionsPrint.PrintDetails = true;
             this.gvProgress.MasterRowEmpty += new DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventHandler(this.gvProgress_MasterRowEmpty);
             this.gvProgress.MasterRowExpanded += new DevExpress.XtraGrid.Views.Grid.CustomMasterRowEventHandler(this.gvProgress_MasterRowExpanded);
             this.gvProgress.MasterRowGetChildList += new DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventHandler(this.gvProgress_MasterRowGetChildList);
@@ -336,9 +337,11 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.search;
+            this.btnSearch.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnSearch.Location = new System.Drawing.Point(12, 77);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(541, 31);
+            this.btnSearch.Size = new System.Drawing.Size(541, 36);
             this.btnSearch.StyleController = this.layoutControl1;
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Tìm kiếm";
@@ -346,9 +349,11 @@
             // 
             // btnExportExcel
             // 
+            this.btnExportExcel.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.excel;
+            this.btnExportExcel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnExportExcel.Location = new System.Drawing.Point(1135, 77);
             this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(576, 31);
+            this.btnExportExcel.Size = new System.Drawing.Size(576, 36);
             this.btnExportExcel.StyleController = this.layoutControl1;
             this.btnExportExcel.TabIndex = 8;
             this.btnExportExcel.Text = "Xuất Excel";
@@ -356,9 +361,11 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.refresh;
+            this.btnRefresh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnRefresh.Location = new System.Drawing.Point(557, 77);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(574, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(574, 36);
             this.btnRefresh.StyleController = this.layoutControl1;
             this.btnRefresh.TabIndex = 7;
             this.btnRefresh.Text = "Làm mới";
@@ -408,9 +415,9 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dgProgress;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 100);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 105);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1703, 651);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1703, 646);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -443,7 +450,7 @@
             this.layoutControlItem5.Control = this.btnExportExcel;
             this.layoutControlItem5.Location = new System.Drawing.Point(1123, 65);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(580, 35);
+            this.layoutControlItem5.Size = new System.Drawing.Size(580, 40);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -452,7 +459,7 @@
             this.layoutControlItem6.Control = this.btnSearch;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 65);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(545, 35);
+            this.layoutControlItem6.Size = new System.Drawing.Size(545, 40);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -461,7 +468,7 @@
             this.layoutControlItem4.Control = this.btnRefresh;
             this.layoutControlItem4.Location = new System.Drawing.Point(545, 65);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(578, 35);
+            this.layoutControlItem4.Size = new System.Drawing.Size(578, 40);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 

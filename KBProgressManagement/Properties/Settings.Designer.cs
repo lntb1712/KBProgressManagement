@@ -105,19 +105,6 @@ namespace KBProgressManagement.Properties
             }
         }
 
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CutSetting
-        {
-            get
-            {
-                return ((string)(this["CutSetting"]));
-            }
-            set
-            {
-                this["CutSetting"] = value;
-            }
-        }
+        
     }
 }

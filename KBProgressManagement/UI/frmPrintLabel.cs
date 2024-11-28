@@ -33,6 +33,7 @@ namespace KBProgressManagement.UI
             pcbPrintPreview.LayoutFile = Application.StartupPath + @"\Layout.mllayx";
             txtPrintTime.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cboPrintName.Properties.DataSource = System.Drawing.Printing.PrinterSettings.InstalledPrinters;
+            cboPrintName.EditValue = Properties.Settings.Default.PrintName;
             LoadCBOProductCode();
             cboProductID.ItemIndex = 0;
 
@@ -232,12 +233,14 @@ namespace KBProgressManagement.UI
         }
         private void btnPrintLabel_Click(object sender, EventArgs e)
         {
+
+            int boxNo;
             string TotalQuantity = txtTotalQuantity.Text;
             string LotNo = txtLotNo.Text;
             string ProductLine = txtProductLine.Text;
             string ProductCode = cboProductID.EditValue.ToString();
+            string ProductName = txtProductName.Text;
             DateTime DueDate = Convert.ToDateTime(dueDate.EditValue.ToString());
-            int boxNo;
 
             if (TotalQuantity.Equals(""))
             {
@@ -258,12 +261,12 @@ namespace KBProgressManagement.UI
             }
 
 
-            if (cboPrintName.EditValue == null)
+            if (cboPrintName.EditValue.Equals(""))
             {
                 XtraMessageBox.Show("Please select printer", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (dueDate.EditValue == null)
+            if (dueDate.EditValue.Equals(""))
             {
                 XtraMessageBox.Show("Please choose Due Date", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -271,13 +274,18 @@ namespace KBProgressManagement.UI
 
             int rsOdd = Convert.ToInt32(TotalQuantity) / Convert.ToInt32(txtQuantity.Text);
             int rsOut = Convert.ToInt32(TotalQuantity) - Convert.ToInt32(txtQuantity.Text) * rsOdd;
+
+            string partCode = gvPrintLabelDetail.GetRowCellValue(gvPrintLabelDetail.FocusedRowHandle, colPartCode).ToString();
+            string partNameVN = gvPrintLabelDetail.GetRowCellValue(gvPrintLabelDetail.FocusedRowHandle, colPartNameVN).ToString();
+            string partNameJP = gvPrintLabelDetail.GetRowCellValue(gvPrintLabelDetail.FocusedRowHandle, colPartNameJP).ToString();
+            List<string> lstBox = new List<string>();
             try
             {
                 if (Convert.ToInt32(TotalQuantity) < Convert.ToInt32(txtQuantity.Text))
                 {
                     boxNo = autoIncreaseBoxNo();
                     PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(TotalQuantity), DueDate, Properties.Settings.Default.FullName);
-                    PrintSetting(boxNo);
+                    lstBox.Add(boxNo.ToString());
                 }
                 else
                 {
@@ -285,17 +293,18 @@ namespace KBProgressManagement.UI
                     {
                         boxNo = autoIncreaseBoxNo();
                         PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(txtQuantity.Text), DueDate, Properties.Settings.Default.FullName);
-                        PrintSetting(boxNo);
+                        lstBox.Add(boxNo.ToString());
                     }
                     if (Convert.ToInt32(TotalQuantity) % Convert.ToInt32(txtQuantity.Text) != 0)
                     {
                         boxNo = autoIncreaseBoxNo();
                         PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, rsOut, DueDate, Properties.Settings.Default.FullName);
-                        PrintSetting(boxNo);
+                        lstBox.Add(boxNo.ToString());
 
                     }
                 }
-                XtraMessageBox.Show("Print Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmSpreadSheetForPrintLabel frm = new frmSpreadSheetForPrintLabel(ProductCode, ProductName, partCode, partNameVN, partNameJP, lstBox, LotNo);
+                frm.ShowDialog();
 
             }
             catch (Exception ex)
@@ -303,6 +312,10 @@ namespace KBProgressManagement.UI
                 XtraMessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
+
+
 
         }
 
@@ -335,6 +348,90 @@ namespace KBProgressManagement.UI
                 childView.Columns["ProcessNameVN"].VisibleIndex = 1;
                 childView.Columns["ProcessNameJP"].VisibleIndex = 2;
                 childView.Columns["ProcessNumber"].VisibleIndex = 3;
+            }
+        }
+
+        private void btnQuickPrint_Click(object sender, EventArgs e)
+        {
+            string TotalQuantity = txtTotalQuantity.Text;
+            string LotNo = txtLotNo.Text;
+            string ProductLine = txtProductLine.Text;
+            string ProductCode = cboProductID.EditValue.ToString();
+            string ProductName = txtProductName.Text;
+            DateTime DueDate = Convert.ToDateTime(dueDate.EditValue.ToString());
+            int boxNo;
+
+            if (TotalQuantity.Equals(""))
+            {
+                XtraMessageBox.Show("Error empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (LotNo.Equals(""))
+            {
+                XtraMessageBox.Show("Error empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (ProductLine.Equals(""))
+            {
+                XtraMessageBox.Show("Error empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            if (cboPrintName.EditValue == null)
+            {
+                XtraMessageBox.Show("Please select printer", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (dueDate.EditValue.Equals(""))
+            {
+                XtraMessageBox.Show("Please choose Due Date", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int rsOdd = Convert.ToInt32(TotalQuantity) / Convert.ToInt32(txtQuantity.Text);
+            int rsOut = Convert.ToInt32(TotalQuantity) - Convert.ToInt32(txtQuantity.Text) * rsOdd;
+            if (cboPrintName.EditValue.Equals("SATO PW4NX"))
+            {
+                try
+                {
+                    if (Convert.ToInt32(TotalQuantity) < Convert.ToInt32(txtQuantity.Text))
+                    {
+                        boxNo = autoIncreaseBoxNo();
+                        PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(TotalQuantity), DueDate, Properties.Settings.Default.FullName);
+                        PrintSetting(boxNo);
+                    }
+                    else
+                    {
+                        for (int i = 1; i <= rsOdd; i++)
+                        {
+                            boxNo = autoIncreaseBoxNo();
+                            PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, Convert.ToInt32(txtQuantity.Text), DueDate, Properties.Settings.Default.FullName);
+                            PrintSetting(boxNo);
+                        }
+                        if (Convert.ToInt32(TotalQuantity) % Convert.ToInt32(txtQuantity.Text) != 0)
+                        {
+                            boxNo = autoIncreaseBoxNo();
+                            PrintLabelDAO.Instance.InsertAndUpdatePrintLabel(boxNo, ProductCode, gvPrintLabelDetail.GetFocusedRowCellValue(colPartCode).ToString(), ProductLine, LotNo, rsOut, DueDate, Properties.Settings.Default.FullName);
+                            PrintSetting(boxNo);
+
+                        }
+                    }
+                    XtraMessageBox.Show("Print Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Vui lòng chọn máy in ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
     }

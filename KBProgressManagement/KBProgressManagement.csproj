@@ -40,6 +40,12 @@
     <Reference Include="DevExpress.Data.Desktop.v24.1" />
     <Reference Include="DevExpress.Data.v24.1" />
     <Reference Include="DevExpress.DataAccess.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v24.1.UI, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataVisualization.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Spreadsheet.v24.1.Core, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v24.1" />
     <Reference Include="DevExpress.Sparkline.v24.1.Core" />
     <Reference Include="DevExpress.Utils.v24.1.UI, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -52,7 +58,12 @@
     <Reference Include="DevExpress.Drawing.v24.1" />
     <Reference Include="DevExpress.XtraGrid.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v24.1, Version=24.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="MLComponent, Version=6.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\MLComponent.dll</HintPath>
@@ -79,6 +90,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zen.Barcode.Rendering.Framework.3.1.10729.1\lib\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccountManagementDAO.cs" />
@@ -98,6 +112,7 @@
     <Compile Include="DAO\ProgressDAO.cs" />
     <Compile Include="DAO\ProgressDetailDAO.cs" />
     <Compile Include="DAO\ProgressHistoryDAO.cs" />
+    <Compile Include="DAO\SpreadSheetForReprintDAO.cs" />
     <Compile Include="DAO\StageRegistrationDAO.cs" />
     <Compile Include="DTO\AccountManagementDTO.cs" />
     <Compile Include="DTO\ChartProgressDTO.cs" />
@@ -115,6 +130,7 @@
     <Compile Include="DTO\ProgressDetailDTO.cs" />
     <Compile Include="DTO\ProgressDTO.cs" />
     <Compile Include="DTO\ProgressHistoryDTO.cs" />
+    <Compile Include="DTO\SpreadSheetForReprintDTO.cs" />
     <Compile Include="DTO\SQLConfig.cs" />
     <Compile Include="DTO\StageRegistrationDTO.cs" />
     <Compile Include="Program.cs" />
@@ -209,6 +225,18 @@
     <Compile Include="UI\frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmSpreadSheetForPrintLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSpreadSheetForPrintLabel.Designer.cs">
+      <DependentUpon>frmSpreadSheetForPrintLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmSpreadSheetForReprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSpreadSheetForReprint.Designer.cs">
+      <DependentUpon>frmSpreadSheetForReprint.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmStageRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,10 +299,17 @@
     <EmbeddedResource Include="UI\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSpreadSheetForPrintLabel.resx">
+      <DependentUpon>frmSpreadSheetForPrintLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSpreadSheetForReprint.resx">
+      <DependentUpon>frmSpreadSheetForReprint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmStageRegistration.resx">
       <DependentUpon>frmStageRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -341,6 +376,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="KB_PROGRESS-removebg-preview.ico" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\Cancel_32x32.png" />
+    <None Include="Resources\save %281%29.png" />
+    <None Include="Resources\save-48.png" />
+    <None Include="Resources\Add_32x32.png" />
+    <None Include="Resources\printer.png" />
     <None Include="Resources\icons8-date-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
