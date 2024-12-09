@@ -85,9 +85,9 @@
             this.labelControl1.Location = new System.Drawing.Point(15, 152);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(148, 26);
+            this.labelControl1.Size = new System.Drawing.Size(139, 26);
             this.labelControl1.TabIndex = 9;
-            this.labelControl1.Text = "Tên Đăng Nhập";
+            this.labelControl1.Text = "Tên đăng nhập";
             // 
             // btnSetting
             // 

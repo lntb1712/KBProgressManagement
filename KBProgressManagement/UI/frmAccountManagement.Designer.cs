@@ -214,7 +214,7 @@
             // 
             // colUserName
             // 
-            this.colUserName.Caption = "Tên Đăng Nhập";
+            this.colUserName.Caption = "Tên đăng nhập";
             this.colUserName.FieldName = "UserID";
             this.colUserName.MinWidth = 25;
             this.colUserName.Name = "colUserName";
@@ -225,7 +225,7 @@
             // colPassword
             // 
             this.colPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.colPassword.Caption = "Mật Khẩu";
+            this.colPassword.Caption = "Mật khẩu";
             this.colPassword.ColumnEdit = this.repositoryPassword;
             this.colPassword.FieldName = "Password";
             this.colPassword.MinWidth = 25;
@@ -242,7 +242,7 @@
             // 
             // colFullname
             // 
-            this.colFullname.Caption = "Tên Đầy Đủ";
+            this.colFullname.Caption = "Tên đầy đủ";
             this.colFullname.FieldName = "Fullname";
             this.colFullname.MinWidth = 25;
             this.colFullname.Name = "colFullname";
@@ -252,7 +252,7 @@
             // 
             // colGroupID
             // 
-            this.colGroupID.Caption = "Mã Nhóm";
+            this.colGroupID.Caption = "Mã nhóm";
             this.colGroupID.FieldName = "GroupID";
             this.colGroupID.MinWidth = 25;
             this.colGroupID.Name = "colGroupID";
@@ -262,7 +262,7 @@
             // 
             // colUpdateBy
             // 
-            this.colUpdateBy.Caption = "Người Cập Nhật";
+            this.colUpdateBy.Caption = "Người cập nhật";
             this.colUpdateBy.FieldName = "UpdateBy";
             this.colUpdateBy.MinWidth = 25;
             this.colUpdateBy.Name = "colUpdateBy";
@@ -272,7 +272,7 @@
             // 
             // colUpdateTime
             // 
-            this.colUpdateTime.Caption = "Thời Gian Cập Nhật";
+            this.colUpdateTime.Caption = "Thời gian cập nhật";
             this.colUpdateTime.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colUpdateTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colUpdateTime.FieldName = "UpdateTime";
@@ -334,9 +334,9 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(364, 65);
-            this.layoutControlItem2.Text = "Tên Đăng Nhập";
+            this.layoutControlItem2.Text = "Tên đăng nhập";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(213, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(201, 26);
             // 
             // layoutControlItem3
             // 
@@ -346,9 +346,9 @@
             this.layoutControlItem3.Location = new System.Drawing.Point(364, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(369, 65);
-            this.layoutControlItem3.Text = "Mật Khẩu";
+            this.layoutControlItem3.Text = "Mật khẩu";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(213, 26);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(201, 26);
             // 
             // layoutControlItem4
             // 
@@ -358,9 +358,9 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(733, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(366, 65);
-            this.layoutControlItem4.Text = "Tên Đầy Đủ";
+            this.layoutControlItem4.Text = "Tên đầy đủ";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(213, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(201, 26);
             // 
             // layoutControlItem5
             // 
@@ -370,9 +370,9 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(1099, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(348, 65);
-            this.layoutControlItem5.Text = "Mã Nhóm Người Dùng";
+            this.layoutControlItem5.Text = "Mã nhóm người dùng";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(213, 26);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(201, 26);
             // 
             // layoutControlItem6
             // 
