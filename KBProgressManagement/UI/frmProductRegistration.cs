@@ -74,7 +74,7 @@ namespace KBProgressManagement.UI
                 try
                 {
                     ProductRegistrationDAO.Instance.InsertAndUpdateProductMaster(ProductCode, ProductName, int.Parse(BoxQuantity), Properties.Settings.Default.FullName);
-                    XtraMessageBox.Show("Insert Successfully","Information",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Insert Successfully","Information",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -87,7 +87,7 @@ namespace KBProgressManagement.UI
                 try
                 {
                     ProductRegistrationDAO.Instance.InsertAndUpdateProductMaster(ProductCode, ProductName, int.Parse(BoxQuantity), Properties.Settings.Default.FullName);
-                    XtraMessageBox.Show("Insert Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Insert Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {

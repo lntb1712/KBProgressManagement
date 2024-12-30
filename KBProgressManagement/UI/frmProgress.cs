@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace KBProgressManagement.UI
 {
     public partial class frmProgress : DevExpress.XtraEditors.XtraForm
@@ -65,39 +66,110 @@ namespace KBProgressManagement.UI
         private void LoadProgressBar() {
             ExpandAllMasterRows(gvProgress);
             int count =gvProgress.RowCount;
- 
+
            
             for (int k = 0; k < count; k++) {
                 {
                     float countStatusProcess = 0;
                     GridView view = (GridView)gvProgress.GetDetailView(k,gvProgress.GetVisibleDetailRelationIndex(k));
-
+            
                     if (view != null)
                     {
-                      
+                        float result = 0;
                         for (int j = 0; j < view.RowCount; j++)
                         {
-                            if (j == view.RowCount - 1)
+                            
+                            if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime)&& (int)view.GetRowCellValue(j, colCQty) > 0)
                             {
-                                if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime) && (int)view.GetRowCellValue(j, colCQty) == 0)
+                                
+                                int temp1 = (int)view.GetRowCellValue(0, colTotal) + (int)view.GetRowCellValue(0, colNGQuantity);
+                                int total = (int)view.GetRowCellValue(0, colCQty) + temp1;
+                                int case1 = (int)view.GetRowCellValue(0, colCase);
+                                int temp = Convert.ToInt32(case1 - ((float)(total) / (float)temp1));
+                                float temp3 = (float)temp / (float)case1;
+                                float temp6 = (float)(temp - 1) / (float)case1;
+                                float temp2 = 0;
+                                if ((int)view.GetRowCellValue(j, colCQty) <= 0)
                                 {
-                                    countStatusProcess++;
+                                    countStatusProcess += temp3;
                                 }
-                                else if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime))
+                                else if ((int)view.GetRowCellValue(j, colCQty) > 0)
                                 {
-                                    countStatusProcess +=( float)0.5;
-                                }    
+                                    if (j == 0)
+                                    {
+                                        countStatusProcess += temp3;
+                                    }
+                                    else
+                                    {
+                                     
+                                        if(j==view.RowCount - 1)
+                                        {
+                                            if (temp > 1)
+                                            {
+                                                temp2 = (view.RowCount - j - 1) * temp6;
+                                                countStatusProcess += temp6;
+                                            }
+                                            else
+                                            {
+                                                temp2 = (view.RowCount - j - 1) * temp3;
+                                                countStatusProcess += temp3;
+                                            }
+                                            
+                                        }
+                                        else
+                                        {
+                                            int temp4 = j + 1;
+                                            if ((DateTime)view.GetRowCellValue(temp4, colUpdateTime) != default(DateTime) && (int)view.GetRowCellValue(temp4, colCQty) <= 0 && (int)view.GetRowCellValue(j, colCQty) != 0)
+                                            {
+                                                if (temp > 1)
+                                                {
+                                                    temp2 = (view.RowCount - j - 1) * temp6;
+                                                    countStatusProcess += temp6;
+                                                }
+                                                else
+                                                {
+                                                    temp2 = (view.RowCount - j - 1) * temp3;
+                                                    countStatusProcess += temp3;
+                                                }
+                                            }
+                                        
+                                        }
+                                      
+                                        if (j != 0)
+                                        {
+                                            result = (float)(countStatusProcess + temp2) / (float)(view.RowCount) * 100;
+                                            break;
+                                        }
+                                    }
+                                }
+                                
                             }
-                            else
+                            else if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime) && (int)view.GetRowCellValue(j, colCQty) <= 0 && (int)view.GetRowCellValue(0, colCQty) == 0)
                             {
-                                if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime) )
-                                {
-                                    countStatusProcess++;
-                                }
+                                countStatusProcess++;
+
                             }
+                            else if ((DateTime)view.GetRowCellValue(j, colUpdateTime) != default(DateTime) && (int)view.GetRowCellValue(j, colCQty) <= 0 && (int)view.GetRowCellValue(0, colCQty) != 0)
+                            {
+                                int temp1 = (int)view.GetRowCellValue(0, colTotal) + (int)view.GetRowCellValue(0, colNGQuantity);
+                                int total = (int)view.GetRowCellValue(0, colCQty) + temp1;
+                                int case1 = (int)view.GetRowCellValue(0, colCase);
+                                int temp = Convert.ToInt32(case1 - ((float)(total) / (float)temp1));
+                                float temp3 = (float)temp / (float)case1;
+                                float temp6 = (float)(temp - 1) / (float)case1;
+                                float temp2 = 0;
+                                countStatusProcess +=temp3;
+
+                            }
+
+
+
+
                         }
-           
-                        float result = (float)(countStatusProcess)/(float)(view.RowCount) * 100;
+                        if (result == 0)
+                        {
+                            result = (float)(countStatusProcess) / (float)(view.RowCount) * 100;
+                        }
                         gvProgress.SetRowCellValue(k,colProgressBar, result);
                     }
 

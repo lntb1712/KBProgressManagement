@@ -78,9 +78,10 @@
             this.layoutControl1.Controls.Add(this.dgProductPart);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1507, 448);
+            this.layoutControl1.Size = new System.Drawing.Size(1159, 431);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -88,9 +89,10 @@
             // 
             this.btnSave.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.save__1_;
             this.btnSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnSave.Location = new System.Drawing.Point(324, 77);
+            this.btnSave.Location = new System.Drawing.Point(251, 76);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(308, 36);
+            this.btnSave.Size = new System.Drawing.Size(235, 36);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Lưu";
@@ -100,9 +102,10 @@
             // 
             this.btnDelete.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.delete;
             this.btnDelete.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnDelete.Location = new System.Drawing.Point(951, 77);
+            this.btnDelete.Location = new System.Drawing.Point(731, 76);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(267, 36);
+            this.btnDelete.Size = new System.Drawing.Size(203, 36);
             this.btnDelete.StyleController = this.layoutControl1;
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Xóa";
@@ -112,9 +115,10 @@
             // 
             this.btnCancel.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.Cancel_32x32;
             this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnCancel.Location = new System.Drawing.Point(636, 77);
+            this.btnCancel.Location = new System.Drawing.Point(490, 76);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(311, 36);
+            this.btnCancel.Size = new System.Drawing.Size(237, 36);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Hủy";
@@ -124,9 +128,10 @@
             // 
             this.btnNew.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.Add_32x32;
             this.btnNew.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnNew.Location = new System.Drawing.Point(12, 77);
+            this.btnNew.Location = new System.Drawing.Point(12, 76);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(308, 36);
+            this.btnNew.Size = new System.Drawing.Size(235, 36);
             this.btnNew.StyleController = this.layoutControl1;
             this.btnNew.TabIndex = 8;
             this.btnNew.Text = "Thêm";
@@ -136,9 +141,10 @@
             // 
             this.btnRefresh.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.refresh;
             this.btnRefresh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnRefresh.Location = new System.Drawing.Point(1222, 77);
+            this.btnRefresh.Location = new System.Drawing.Point(938, 76);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(273, 36);
+            this.btnRefresh.Size = new System.Drawing.Size(209, 36);
             this.btnRefresh.StyleController = this.layoutControl1;
             this.btnRefresh.TabIndex = 7;
             this.btnRefresh.Text = "Làm mới";
@@ -146,30 +152,34 @@
             // 
             // cboPartCode
             // 
-            this.cboPartCode.Location = new System.Drawing.Point(755, 41);
+            this.cboPartCode.Location = new System.Drawing.Point(581, 40);
+            this.cboPartCode.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cboPartCode.Name = "cboPartCode";
             this.cboPartCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboPartCode.Size = new System.Drawing.Size(740, 32);
+            this.cboPartCode.Size = new System.Drawing.Size(566, 32);
             this.cboPartCode.StyleController = this.layoutControl1;
             this.cboPartCode.TabIndex = 6;
             // 
             // cboProductCode
             // 
-            this.cboProductCode.Location = new System.Drawing.Point(12, 41);
+            this.cboProductCode.Location = new System.Drawing.Point(12, 40);
+            this.cboProductCode.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cboProductCode.Name = "cboProductCode";
             this.cboProductCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboProductCode.Size = new System.Drawing.Size(739, 32);
+            this.cboProductCode.Size = new System.Drawing.Size(565, 32);
             this.cboProductCode.StyleController = this.layoutControl1;
             this.cboProductCode.TabIndex = 5;
             // 
             // dgProductPart
             // 
-            this.dgProductPart.Location = new System.Drawing.Point(12, 117);
+            this.dgProductPart.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dgProductPart.Location = new System.Drawing.Point(12, 116);
             this.dgProductPart.MainView = this.gvProductPart;
+            this.dgProductPart.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgProductPart.Name = "dgProductPart";
-            this.dgProductPart.Size = new System.Drawing.Size(1483, 319);
+            this.dgProductPart.Size = new System.Drawing.Size(1135, 303);
             this.dgProductPart.TabIndex = 4;
             this.dgProductPart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProductPart});
@@ -179,9 +189,11 @@
             this.gvProductPart.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colProductCode,
             this.colPartCode});
+            this.gvProductPart.DetailHeight = 337;
             this.gvProductPart.GridControl = this.dgProductPart;
             this.gvProductPart.Name = "gvProductPart";
             this.gvProductPart.OptionsBehavior.Editable = false;
+            this.gvProductPart.OptionsEditForm.PopupEditFormWidth = 615;
             this.gvProductPart.OptionsSelection.MultiSelect = true;
             this.gvProductPart.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             // 
@@ -189,21 +201,21 @@
             // 
             this.colProductCode.Caption = "Mã sản phẩm";
             this.colProductCode.FieldName = "ProductCode";
-            this.colProductCode.MinWidth = 25;
+            this.colProductCode.MinWidth = 19;
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.Visible = true;
             this.colProductCode.VisibleIndex = 1;
-            this.colProductCode.Width = 94;
+            this.colProductCode.Width = 72;
             // 
             // colPartCode
             // 
             this.colPartCode.Caption = "Mã linh kiện";
             this.colPartCode.FieldName = "PartCode";
-            this.colPartCode.MinWidth = 25;
+            this.colPartCode.MinWidth = 19;
             this.colPartCode.Name = "colPartCode";
             this.colPartCode.Visible = true;
             this.colPartCode.VisibleIndex = 2;
-            this.colPartCode.Width = 94;
+            this.colPartCode.Width = 72;
             // 
             // Root
             // 
@@ -219,15 +231,15 @@
             this.layoutControlItem8,
             this.layoutControlItem6});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1507, 448);
+            this.Root.Size = new System.Drawing.Size(1159, 431);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dgProductPart;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 105);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 104);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1487, 323);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1139, 307);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -238,76 +250,77 @@
             this.layoutControlItem2.Control = this.cboProductCode;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(743, 65);
+            this.layoutControlItem2.Size = new System.Drawing.Size(569, 64);
             this.layoutControlItem2.Text = "Mã sản phẩm";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(124, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 25);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem3.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem3.Control = this.cboPartCode;
-            this.layoutControlItem3.Location = new System.Drawing.Point(743, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(569, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(744, 65);
+            this.layoutControlItem3.Size = new System.Drawing.Size(570, 64);
             this.layoutControlItem3.Text = "Mã linh kiện";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(124, 26);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 25);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnRefresh;
-            this.layoutControlItem4.Location = new System.Drawing.Point(1210, 65);
+            this.layoutControlItem4.Location = new System.Drawing.Point(926, 64);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(277, 40);
+            this.layoutControlItem4.Size = new System.Drawing.Size(213, 40);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnNew;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 65);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 64);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(312, 40);
+            this.layoutControlItem5.Size = new System.Drawing.Size(239, 40);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnDelete;
-            this.layoutControlItem7.Location = new System.Drawing.Point(939, 65);
+            this.layoutControlItem7.Location = new System.Drawing.Point(719, 64);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(271, 40);
+            this.layoutControlItem7.Size = new System.Drawing.Size(207, 40);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btnSave;
-            this.layoutControlItem8.Location = new System.Drawing.Point(312, 65);
+            this.layoutControlItem8.Location = new System.Drawing.Point(239, 64);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(312, 40);
+            this.layoutControlItem8.Size = new System.Drawing.Size(239, 40);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnCancel;
-            this.layoutControlItem6.Location = new System.Drawing.Point(624, 65);
+            this.layoutControlItem6.Location = new System.Drawing.Point(478, 64);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(315, 40);
+            this.layoutControlItem6.Size = new System.Drawing.Size(241, 40);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // frmProductPart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1507, 448);
+            this.ClientSize = new System.Drawing.Size(1159, 431);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmProductPart";
-            this.Text = "Khai báo linh kiện cho sản phẩm ";
+            this.Text = "Quản lí linh kiện cho sản phẩm";
             this.Load += new System.EventHandler(this.frmProductPart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

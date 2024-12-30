@@ -77,7 +77,7 @@
             // ribbon
             // 
             this.ribbon.CaptionBarItemLinks.Add(this.txtFullName);
-            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(87, 70, 87, 70);
+            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(136, 109, 136, 109);
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -105,15 +105,15 @@
             this.btnChartOverTime,
             this.dateNow});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(14, 11, 14, 11);
             this.ribbon.MaxItemId = 24;
             this.ribbon.Name = "ribbon";
-            this.ribbon.OptionsMenuMinWidth = 943;
+            this.ribbon.OptionsMenuMinWidth = 1474;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.Function,
             this.Chart});
             this.ribbon.QuickToolbarItemLinks.Add(this.dateNow);
-            this.ribbon.Size = new System.Drawing.Size(1940, 231);
+            this.ribbon.Size = new System.Drawing.Size(1940, 226);
             this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
             // 
             // txtFullName
@@ -149,7 +149,7 @@
             // 
             // btnStageRegistration
             // 
-            this.btnStageRegistration.Caption = "Thêm công đoạn";
+            this.btnStageRegistration.Caption = "Quản lí công đoạn";
             this.btnStageRegistration.Id = 3;
             this.btnStageRegistration.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.engineering;
             this.btnStageRegistration.ImageOptions.LargeImageIndex = 38;
@@ -160,7 +160,7 @@
             // 
             // btnPart
             // 
-            this.btnPart.Caption = "Khai báo linh kiện";
+            this.btnPart.Caption = "Quản lí linh kiện";
             this.btnPart.Id = 4;
             this.btnPart.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.carton;
             this.btnPart.ImageOptions.LargeImageIndex = 38;
@@ -171,7 +171,7 @@
             // 
             // btnProduct
             // 
-            this.btnProduct.Caption = "Khai báo sản phẩm";
+            this.btnProduct.Caption = "Quản lí sản phẩm";
             this.btnProduct.Id = 5;
             this.btnProduct.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.Product;
             this.btnProduct.ImageOptions.LargeImageIndex = 38;
@@ -182,7 +182,7 @@
             // 
             // btnProductPart
             // 
-            this.btnProductPart.Caption = "Khai báo linh kiện cho sản phẩm";
+            this.btnProductPart.Caption = "Quản lí linh kiện cho sản phẩm";
             this.btnProductPart.Id = 6;
             this.btnProductPart.ImageOptions.Image = global::KBProgressManagement.Properties.Resources.structure;
             this.btnProductPart.ImageOptions.LargeImageIndex = 38;
@@ -331,7 +331,7 @@
             // 
             // Function
             // 
-            this.Function.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Function.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Function.Appearance.Options.UseFont = true;
             this.Function.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
